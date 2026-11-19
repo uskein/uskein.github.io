@@ -1,0 +1,15 @@
+# Herramientas y artefactos de desarrollo (se mantienen en local, no se publican)
+.agents/
+skills-lock.json
+
+# Proyecto de video: cachés, vistas previas y renders duplicados
+video/.hyperframes/
+video/.thumbnails/
+video/renders/
+
+# Evidencia de QA
+Artefactos/qa/
+
+# Utilidad temporal
+tools/make-ref.mjs
+assets/img/ref.png

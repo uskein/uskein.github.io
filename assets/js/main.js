@@ -10,7 +10,7 @@ var PRODUCTS = USKEIN_DATA.PRODUCTS;
 var CONFIG = {
   formspreeId: 'TU_FORM_ID',          // https://formspree.io → crear formulario gratis
   whatsapp: '573132904451',           // Colombia: 57 + 313 290 4451
-  email: 'hola@uskein.dev',
+  email: 'juansebastianp188@gmail.com',
   whatsappText: 'Hola Uskein Studio, quiero información sobre aplicaciones móviles, aplicaciones web o sistemas transaccionales a la medida.'
 };
 window.USKEIN_CONFIG = CONFIG;

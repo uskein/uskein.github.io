@@ -50,7 +50,7 @@ Editar `assets/js/main.js`:
 var CONFIG = {
   formspreeId: 'TU_FORM_ID',   // Crear en https://formspree.io (plan gratis)
   whatsapp: '573132904451',    // Ya configurado: +57 313 290 4451
-  email: 'hola@uskein.dev'
+  email: 'juansebastianp188@gmail.com'
 };
 ```
 

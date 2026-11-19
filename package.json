@@ -1,0 +1,10 @@
+{
+  "name": "uskein-studio-brochure",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Brochure estático de Uskein Studio — sin build, desplegable en GitHub Pages",
+  "scripts": {
+    "generate": "node tools/generate.mjs"
+  }
+}

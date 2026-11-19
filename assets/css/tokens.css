@@ -1,0 +1,100 @@
+/* ============================================================
+   USKEIN STUDIO — Design tokens
+   Fuente: Artefactos/documentacion/Diseno-Visual/manual-identidad-visual.md
+   PROHIBIDO hardcodear HEX fuera de este archivo.
+   ============================================================ */
+
+:root {
+  /* Color — modo grafito (nativo) */
+  --bg: #0E1116;
+  --bg-raised: #151A21;
+  --surface: #1A2029;
+  --surface-alt: #232B36;
+  --line: #2A323E;
+  --line-strong: #3D4856;
+  --text: #F0EFEA;
+  --text-muted: #9BA4B0;
+  --text-faint: #6E7886;
+
+  /* Acento y semánticos */
+  --accent: #C8FF3D;
+  --accent-hover: #B4E82F;
+  --accent-active: #A0D61F;
+  --accent-soft: #1F2A12;
+  --on-accent: #0A0F08;
+  --data: #7FA0FF;
+  --ok: #2BD97C;
+  --warn: #FFB020;
+  --bad: #FF5A5A;
+
+  /* Color de producto (se sobreescribe por ficha) */
+  --product: #C8FF3D;
+
+  /* Tipografía */
+  --font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --font-ui: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* Escala fluida */
+  --fs-hero: clamp(2.75rem, 7vw, 6.5rem);
+  --fs-h2: clamp(1.75rem, 4vw, 3.25rem);
+  --fs-h3: clamp(1.125rem, 2vw, 1.5rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+  --fs-mono: 0.6875rem;
+
+  /* Espaciado — retícula 4px */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px;
+  --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+  --s-32: 128px;
+
+  /* Retícula */
+  --maxw: 1200px;
+  --gutter: 24px;
+  --margin: 48px;
+
+  /* Radios, bordes, sombras */
+  --radius: 0;
+  --border: 1px solid var(--line);
+  --border-strong: 1px solid var(--line-strong);
+  --shadow-hard: 3px 3px 0 var(--on-accent);
+  --shadow-hard-accent: 3px 3px 0 var(--accent);
+
+  /* Movimiento */
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --dur: 180ms;
+  --dur-slow: 240ms;
+}
+
+[data-theme='light'] {
+  --bg: #EDEBE4;
+  --bg-raised: #F7F6F1;
+  --surface: #F7F6F1;
+  --surface-alt: #DFDCD2;
+  --line: #C9C6BC;
+  --line-strong: #8D9288;
+  --text: #14171C;
+  --text-muted: #575C58;
+  --text-faint: #878C86;
+  --accent: #5A8F00;
+  --accent-hover: #4A7800;
+  --accent-active: #3D6400;
+  --accent-soft: #E5EED2;
+  --on-accent: #FFFFFF;
+  --data: #1B44C8;
+  --ok: #1B6B43;
+  --warn: #8A4A00;
+  --bad: #B3261E;
+  --shadow-hard: 3px 3px 0 var(--text);
+}
+
+@media (max-width: 720px) {
+  :root { --margin: 20px; --gutter: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; --dur-slow: 0ms; }
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

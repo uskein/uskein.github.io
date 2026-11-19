@@ -1,0 +1,185 @@
+/* Genera los 5 showcases visuales del proceso (skills 1-3) */
+import { mkdir, writeFile } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+
+const CSS = `
+:root{--accent:#C8FF3D;--data:#7FA0FF;--ok:#2BD97C;--warn:#FFB020;--bad:#FF5A5A;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-ui);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:auto;padding:48px 24px 96px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:48px;flex-wrap:wrap}
+.reg{display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:12px}
+.brand{font-family:var(--font-display);letter-spacing:-.03em}
+.kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted)}
+h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);line-height:1;letter-spacing:-.03em;margin:12px 0 16px}
+h2{font-family:var(--font-display);font-size:1.5rem;margin:0 0 16px}
+.lede{color:var(--text-muted);max-width:70ch;font-size:1.05rem}
+.back{font-family:var(--font-mono);font-size:11px;color:var(--accent);border:1px solid var(--line-strong);padding:10px 14px}
+.grid{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g2{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);background:var(--surface);padding:24px;position:relative;transition:transform .18s var(--ease),border-color .18s var(--ease)}
+.card:hover{transform:translateY(-4px);border-color:var(--line-strong)}
+.card::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:var(--c,var(--accent))}
+.tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c,var(--accent))}
+.card h3{font-size:1.1rem;margin:10px 0 8px}
+.card p{color:var(--text-muted);font-size:.9rem;margin:0}
+.chk{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.chk li{display:flex;gap:10px;font-size:.85rem;color:var(--text-muted);cursor:pointer}
+.chk li::before{content:'□';color:var(--c,var(--accent));font-family:var(--font-mono)}
+.chk li.done{text-decoration:line-through;opacity:.6}.chk li.done::before{content:'■'}
+.node{border:1px solid var(--line);background:var(--surface);padding:16px;text-align:center;cursor:pointer;transition:all .18s var(--ease)}
+.node:hover,.node.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.node small{display:block;font-family:var(--font-mono);font-size:10px;opacity:.7;margin-top:4px}
+.flow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:20px}
+.step{border:1px solid var(--line-strong);padding:14px 18px;cursor:pointer;background:var(--surface);font-family:var(--font-mono);font-size:12px;transition:all .18s var(--ease)}
+.step.on{background:var(--accent);color:var(--on-accent)}
+.arrow{color:var(--text-faint)}
+.state{display:none;border:1px solid var(--line);background:var(--surface);padding:20px;margin-top:16px}
+.state.on{display:block;animation:fade .18s var(--ease)}@keyframes fade{from{opacity:0}to{opacity:1}}
+.badge{display:inline-block;font-family:var(--font-mono);font-size:10px;padding:4px 8px;border:1px solid currentColor;margin-bottom:10px}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.data{color:var(--data)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tab{font-family:var(--font-mono);font-size:11px;padding:10px 14px;border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer;text-transform:uppercase}
+.tab.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.panel{border:1px solid var(--line-strong);background:var(--surface);aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden}
+.panel::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);background-size:32px 32px;opacity:.4}
+.panel span{font-family:var(--font-display);font-size:4rem;color:var(--accent);position:relative}
+.footer{margin-top:64px;border-top:1px solid var(--line);padding-top:24px;font-family:var(--font-mono);font-size:11px;color:var(--text-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+`;
+
+function shell(title, kicker, lead, body) {
+  return `<!doctype html>
+<html lang="es" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${title} — Uskein Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<style>${CSS}</style></head>
+<body><div class="wrap">
+<div class="top"><a class="brand" href="../../index.html"><span class="reg"></span>USKEIN STUDIO</a><a class="back" href="PRODUCTO_VISUAL_HUB.html">← Hub visual</a></div>
+<p class="kicker">${kicker}</p><h1>${title}</h1><p class="lede">${lead}</p>
+${body}
+<div class="footer"><span>Uskein Studio · Documentación visual</span><span>2026 · GitHub Pages</span></div>
+</div></body></html>`;
+}
+
+const files = {};
+
+files['Requerimientos/REQUERIMIENTOS_VISUAL.html'] = shell(
+  'Requerimientos funcionales', 'Paso 2 · Actores y épicas',
+  'Cuatro actores, cuatro épicas. Las tarjetas usan los componentes del design system aprobado; las listas son checklists interactivos.',
+  `<div class="grid g2" style="margin-top:40px">
+    ${[
+      ['Cliente individual','Entender la oferta y probar sin fricción','No saber si funciona sin red','#8B78FF'],
+      ['Pequeño equipo','Evaluar una licencia compartida','No entender el alcance','#3B82F6'],
+      ['Propietario','Publicar sin coste ni backend','Depender de plugins y CMS','#C8FF3D'],
+      ['Visitante de paso','Comprender en menos de 5 segundos','Texto genérico sin pruebas','#E8A33D']
+    ].map(([n,o,f,c])=>`<article class="card" style="--c:${c}"><span class="tag">Actor</span><h3>${n}</h3><p><strong>Objetivo:</strong> ${o}<br><strong>Fricción:</strong> ${f}</p></article>`).join('')}
+  </div>
+  <h2 style="margin-top:56px">Épicas e historias</h2>
+  <div class="grid g2">
+    ${[
+      ['E1 · Descubrimiento','#C8FF3D',['Ver la promesa en el hero','Filtrar por categoría','Navegar con teclado']],
+      ['E2 · Evaluación','#7FA0FF',['Abrir ficha con estado real','Alternar tema claro y oscuro','Ver productos vecinos']],
+      ['E3 · Conversión','#2BD97C',['Elegir canal de contacto','Validar el formulario','Ver precios orientativos']],
+      ['E4 · Publicación','#FFB020',['Publicar gratis en GitHub Pages','Regenerar fichas desde data.js']]
+    ].map(([n,c,items])=>`<article class="card" style="--c:${c}"><span class="tag">Épica</span><h3>${n}</h3><ul class="chk">${items.map(i=>`<li>${i}</li>`).join('')}</ul></article>`).join('')}
+  </div>`
+);
+
+files['ArquitecturaInformacion/ARQUITECTURA_INFORMACION_VISUAL.html'] = shell(
+  'Arquitectura de información', 'Paso 3 · Sitemap interactivo',
+  'Haz clic en cualquier nodo para simular la navegación. La estructura es un hub con diez hojas y navegación circular entre fichas.',
+  `<div style="margin-top:40px"><span class="kicker">Nodo raíz</span>
+  <div class="grid" style="grid-template-columns:280px; margin-top:12px"><div class="node" data-node="Hub">index.html<small>HUB · Catálogo</small></div></div>
+  <div style="border-left:1px solid var(--line);margin-left:24px;padding-left:24px;margin-top:20px">
+    <div class="grid g3">
+      ${['habitos','inspector','monedero','biblioteca','classdesk','diario','galeria','lector','voynich','estilos'].map((s,i)=>`<div class="node" data-node="US-${String(i+1).padStart(2,'0')}">US-${String(i+1).padStart(2,'0')}<small>${s}</small></div>`).join('')}
+    </div>
+  </div></div>
+  <div class="state" id="node-state"><span class="badge data">Navegación</span><p id="node-text"></p></div>`
+);
+
+files['Blueprints/BLUEPRINTS_VISUAL.html'] = shell(
+  'Blueprints de pantallas', 'Paso 4 · Galería de estados',
+  'Cada pantalla contempla cuatro estados. Alterna entre ellos para ver cómo reaccionan los componentes del design system.',
+  `<div class="tabs" style="margin-top:40px">${['loading','empty','success','error'].map((s,i)=>`<button class="tab ${i===2?'on':''}" data-state="${s}">${s}</button>`).join('')}</div>
+  <div class="hero-grid">
+    <div>
+      <h2>BP-01 · Hub</h2>
+      <div class="state on" data-panel="loading"><span class="badge warn">Loading</span><p>Retícula de carga mientras <span class="mono">data.js</span> entrega el catálogo.</p></div>
+      <div class="state" data-panel="empty"><span class="badge warn">Empty</span><p>El filtro no coincide: «No hay productos en esta categoría».</p></div>
+      <div class="state on" data-panel="success"><span class="badge ok">Success</span><p>Diez tarjetas con acento propio, filtros activos y CTAs visibles.</p></div>
+      <div class="state" data-panel="error"><span class="badge bad">Error</span><p>Fallo al cargar el módulo: aviso con enlace de contacto alternativo.</p></div>
+    </div>
+    <div class="panel"><span>US-NN</span></div>
+  </div>
+  <h2 style="margin-top:56px">BP-02 · Ficha de producto</h2>
+  <p class="lede">Placa técnica con número de catálogo, seis funcionalidades, cuatro momentos de interfaz y navegación vecina.</p>`
+);
+
+files['Flujos/FLUJOS_VISUAL.html'] = shell(
+  'Flujos interactivos', 'Paso 5 · Simulación jugable',
+  'Recorre el flujo paso a paso. Cada clic muestra la transición y el estado resultante.',
+  `<div class="flow" style="margin-top:40px" id="flow">
+    <div class="step on">1 · Cargo el hub</div><span class="arrow">→</span>
+    <div class="step">2 · Veo 10 productos</div><span class="arrow">→</span>
+    <div class="step">3 · Filtro Bienestar</div><span class="arrow">→</span>
+    <div class="step">4 · Abro Pulse Clay</div><span class="arrow">→</span>
+    <div class="step">5 · Escribo por WhatsApp</div>
+  </div>
+  <div class="state on" id="flow-state"><span class="badge ok">Paso 1</span><p>Hero visible con la promesa y los cuatro números clave.</p></div>`
+);
+
+files['DocumentacionMaestra/PRODUCTO_VISUAL_HUB.html'] = shell(
+  'Hub visual del producto', 'Documentación maestra',
+  'Portal de entrada a toda la documentación visual del brochure y al sitio publicable.',
+  `<div class="grid g3" style="margin-top:40px">
+    ${[
+      ['Requerimientos','../Requerimientos/REQUERIMIENTOS_VISUAL.html','#8B78FF','Actores, épicas e historias'],
+      ['Arquitectura de información','../ArquitecturaInformacion/ARQUITECTURA_INFORMACION_VISUAL.html','#3B82F6','Sitemap navegable'],
+      ['Blueprints','../Blueprints/BLUEPRINTS_VISUAL.html','#C8FF3D','Pantallas y cuatro estados'],
+      ['Flujos','../Flujos/FLUJOS_VISUAL.html','#E8A33D','Simulación jugable'],
+      ['Brochure en vivo','../../../index.html','#2BD97C','Sitio final: hub + 10 fichas'],
+      ['Manual de identidad','../../../Artefactos/documentacion/Diseno-Visual/manual-identidad-visual.md','#FF6A2B','Fuente única de verdad']
+    ].map(([n,href,c,d])=>`<a class="card" style="--c:${c}" href="${href}"><span class="tag">Abrir</span><h3>${n}</h3><p>${d}</p></a>`).join('')}
+  </div>`
+);
+
+const SCRIPT = `<script>
+document.querySelectorAll('.chk li').forEach(li=>li.addEventListener('click',()=>li.classList.toggle('done')));
+document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{
+  document.querySelectorAll('.node').forEach(x=>x.classList.remove('on'));n.classList.add('on');
+  const s=document.getElementById('node-state');if(s){s.classList.add('on');document.getElementById('node-text').textContent='Navegación simulada hacia '+n.dataset.node+'. El breadcrumb mostraría Inicio / Catálogo / '+n.dataset.node+'.';}
+}));
+const tabs=document.querySelectorAll('.tab');tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('on'));t.classList.add('on');
+  document.querySelectorAll('[data-panel]').forEach(p=>p.classList.toggle('on',p.dataset.panel===t.dataset.state));
+}));
+const steps=document.querySelectorAll('.step');const notes=[
+ 'Hero visible con la promesa y los cuatro números clave.',
+ 'Diez tarjetas renderizadas desde data.js con acento por producto.',
+ 'Solo dos tarjetas: Pulse Clay y DiarioFit. aria-pressed actualizado.',
+ 'Ficha US-01: placa, seis funcionalidades y navegación vecina.',
+ 'Se abre wa.me con el mensaje prellenado desde CONFIG.'
+];
+steps.forEach((s,i)=>s.addEventListener('click',()=>{
+  steps.forEach(x=>x.classList.remove('on'));s.classList.add('on');
+  const st=document.getElementById('flow-state');if(st){st.classList.add('on');st.querySelector('.badge').textContent='Paso '+(i+1);st.querySelector('p').textContent=notes[i];}
+}));
+</script>`;
+
+for (const [rel, html] of Object.entries(files)) {
+  const path = join(ROOT, 'Artefactos', 'documentacion', rel);
+  await mkdir(dirname(path), { recursive: true });
+  await writeFile(path, html.replace('</body>', SCRIPT + '\n</body>'), 'utf8');
+  console.log('OK  ' + rel);
+}
+console.log(`\n${Object.keys(files).length} showcases generados.`);

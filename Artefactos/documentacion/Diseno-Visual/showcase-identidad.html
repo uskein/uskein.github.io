@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brand Book — Uskein Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<style>
+  body{padding-bottom:80px}
+  .bb{padding-block:var(--s-20)}
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--s-3);margin-top:var(--s-8)}
+  .sw{border:var(--border);padding:var(--s-4)}
+  .sw__chip{height:64px;border:var(--border);margin-bottom:var(--s-3)}
+  .sw__name{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+  .sw__hex{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-muted)}
+  .type-row{border-bottom:var(--border);padding-block:var(--s-5);display:flex;align-items:baseline;gap:var(--s-6);flex-wrap:wrap}
+  .type-row span{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);min-width:120px}
+  .demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s-6);margin-top:var(--s-8)}
+  .demo-box{border:var(--border);background:var(--surface);padding:var(--s-6);display:grid;gap:var(--s-4);justify-items:start}
+  .demo-box h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+  .signature{display:flex;align-items:center;gap:var(--s-4);font-family:var(--font-mono);font-size:var(--fs-xs);margin-top:var(--s-6)}
+  .signature i{width:8px;height:8px;background:var(--accent);display:block;animation:ping 1.8s var(--ease) infinite}
+  @keyframes ping{0%,100%{transform:scale(1)}50%{transform:scale(.65)}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand" href="../../../index.html"><span class="reg" aria-hidden="true"></span>USKEIN STUDIO</a>
+  <nav class="nav"><a href="#color">Color</a><a href="#tipo">Tipografía</a><a href="#componentes">Componentes</a><a href="../../../index.html">Ver brochure →</a></nav>
+</div></header>
+
+<main id="main">
+  <section class="hero"><div class="grid-bg" aria-hidden="true"></div><div class="container">
+    <p class="eyebrow">Brand book · v1.0 · 2026</p>
+    <h1 class="hero__title">Bloque Grafito<br><em>+ retícula suiza</em></h1>
+    <p class="hero__sub">Preciso, técnico, directo, con peso editorial. El banco de trabajo de un ingeniero de campo traducido a sistema visual.</p>
+    <div class="signature"><i></i><span>US-00 · Punto de registro · La firma aparece en cada producto</span></div>
+  </div></section>
+
+  <section class="section section--alt" id="color"><div class="container">
+    <p class="eyebrow">01 · Color</p><h2 class="h2">Rampa grafito y papel</h2>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:#0E1116"></div><div class="sw__name">bg</div><div class="sw__hex">#0E1116</div></div>
+      <div class="sw"><div class="sw__chip" style="background:#1A2029"></div><div class="sw__name">surface</div><div class="sw__hex">#1A2029</div></div>
+      <div class="sw"><div class="sw__chip" style="background:#2A323E"></div><div class="sw__name">line</div><div class="sw__hex">#2A323E</div></div>
+      <div class="sw"><div class="sw__chip" style="background:#F0EFEA"></div><div class="sw__name">text</div><div class="sw__hex">#F0EFEA</div></div>
+      <div class="sw"><div class="sw__chip" style="background:#C8FF3D"></div><div class="sw__name">accent</div><div class="sw__hex">#C8FF3D</div></div>
+      <div class="sw"><div class="sw__chip" style="background:#7FA0FF"></div><div class="sw__name">data</div><div class="sw__hex">#7FA0FF</div></div>
+      <div class="sw"><div class="sw__chip" style="background:#EDEBE4"></div><div class="sw__name">papel</div><div class="sw__hex">#EDEBE4</div></div>
+      <div class="sw"><div class="sw__chip" style="background:#5A8F00"></div><div class="sw__name">accent claro</div><div class="sw__hex">#5A8F00</div></div>
+    </div>
+  </div></section>
+
+  <section class="section" id="tipo"><div class="container">
+    <p class="eyebrow">02 · Tipografía</p><h2 class="h2">Tres voces, ninguna de adorno</h2>
+    <div style="margin-top:var(--s-8)">
+      <div class="type-row"><span>Archivo Black · display</span><strong style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em">USKEIN STUDIO</strong></div>
+      <div class="type-row"><span>Archivo · UI</span><strong style="font-family:var(--font-ui);font-size:1.5rem">Software que se queda en tu equipo.</strong></div>
+      <div class="type-row"><span>IBM Plex Mono · datos</span><strong class="mono" style="font-size:1.125rem">US-01 · 100% · 23 flujos</strong></div>
+    </div>
+  </div></section>
+
+  <section class="section section--alt" id="componentes"><div class="container">
+    <p class="eyebrow">03 · Componentes</p><h2 class="h2">Sistema en acción</h2>
+    <div class="demo-grid">
+      <div class="demo-box"><h3>Acción</h3>
+        <button class="btn btn--primary" type="button">Enviar mensaje</button>
+        <button class="btn btn--secondary" type="button">Hablar por WhatsApp</button>
+        <a class="btn btn--ghost" href="#">Ver catálogo →</a>
+      </div>
+      <div class="demo-box"><h3>Estado</h3>
+        <span class="status status--available">Disponible</span>
+        <span class="status status--beta">Beta</span>
+        <span class="status status--soon">En diseño</span>
+        <span class="chip">Categoría</span><span class="chip">iOS · Android</span>
+      </div>
+      <div class="demo-box" style="grid-column:span 2"><h3>Placa técnica</h3>
+        <div class="placa" style="width:100%"><div class="placa__metrics">
+          <div class="metric"><div class="metric__value">10</div><div class="metric__label">Productos</div></div>
+          <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Local-first</div></div>
+          <div class="metric"><div class="metric__value">0</div><div class="metric__label">Cuentas</div></div>
+        </div></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom">
+  <span>Uskein Studio · Manual de identidad visual</span><span>Prohibido: gradientes, glows, radios, emojis, palabras de moda</span>
+</div></div></footer>
+</body></html>

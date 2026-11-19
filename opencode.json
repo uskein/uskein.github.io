@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "references": {
+    "identidad-visual": {
+      "path": "Artefactos/documentacion/Diseno-Visual/manual-identidad-visual.md",
+      "description": "Single Source of Truth de la identidad visual de Uskein Studio. Usar para mantener coherencia en cualquier cambio de UI del brochure."
+    },
+    "manual-agente": {
+      "path": "Artefactos/documentacion/Diseno-Visual/MANUAL_AGENTE.md",
+      "description": "Reglas rápidas de craft, componentes disponibles y procedimiento para añadir productos."
+    },
+    "arquitectura": {
+      "path": "Artefactos/documentacion/Arquitectura/README_ARQUITECTURA.md",
+      "description": "Arquitectura estática aprobada: stack, ADR y decisiones de despliegue en GitHub Pages."
+    },
+    "producto-flujos": {
+      "path": "Artefactos/documentacion/Producto y Flujos/REQUERIMIENTOS_FUNCIONALES.md",
+      "description": "Actores, épicas, historias, blueprints y flujos aprobados del brochure."
+    }
+  }
+}

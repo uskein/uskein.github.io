@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root { --ground:#EDEBE4; --ink:#14171C; --muted:#575C58; --accent:#C8FF3D; --line:#C9C6BC; }
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--ground); }
+      #root { position:relative; width:100%; height:100%; font-family:sans-serif; }
+      .clip { position:absolute; inset:0; }
+      .full { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:120px 140px; }
+      .eyebrow { font-family:'IBM Plex Mono', monospace; font-size:30px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; display:flex; align-items:center; gap:18px; }
+      .eyebrow::before { content:''; width:14px; height:14px; background:var(--accent); display:block; }
+      h1 { font-family:'Archivo Black', sans-serif; font-size:104px; line-height:1.02; letter-spacing:-.045em; color:var(--ink); margin-top:36px; text-transform:uppercase; }
+      h1 em { color:#5A8F00; font-style:normal; }
+      .rule { width:120px; height:5px; background:var(--accent); margin-top:44px; }
+      .imgbox { position:absolute; left:140px; top:150px; width:1640px; height:780px; border:2px solid var(--ink); background:#F7F6F1; overflow:hidden; }
+      .imgbox img { width:100%; height:100%; object-fit:cover; display:block; }
+      .card { position:absolute; top:170px; width:500px; height:700px; border:2px solid var(--ink); background:#F7F6F1; overflow:hidden; }
+      .card img { width:100%; height:420px; object-fit:contain; object-position:center; background:#EDEBE4; display:block; border-bottom:2px solid var(--ink); }
+      .card .meta { padding:32px; }
+      .card .id { font-family:'IBM Plex Mono', monospace; font-size:30px; letter-spacing:.12em; color:#4F7D00; }
+      .card .name { font-family:'Archivo Black', sans-serif; font-size:44px; line-height:1.05; color:var(--ink); margin-top:18px; text-transform:uppercase; }
+      .card .tag { font-size:30px; color:var(--muted); margin-top:16px; line-height:1.3; }
+      .proof { position:absolute; left:140px; top:130px; width:1000px; height:820px; border:2px solid var(--ink); overflow:hidden; background:#F7F6F1; }
+      .proof img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+      .proof-label { position:absolute; left:1180px; top:330px; width:600px; }
+      .proof-label .id { font-family:'IBM Plex Mono', monospace; font-size:30px; color:#4F7D00; letter-spacing:.1em; }
+      .proof-label h2 { font-family:'Archivo Black', sans-serif; font-size:66px; line-height:1.05; color:var(--ink); margin-top:20px; text-transform:uppercase; }
+      .proof-label p { font-size:30px; color:var(--muted); margin-top:24px; line-height:1.35; }
+      .end { position:absolute; inset:0; background:var(--accent); display:flex; flex-direction:column; justify-content:center; padding:120px 140px; }
+      .end .mark { width:40px; height:40px; background:var(--ink); }
+      .end h2 { font-family:'Archivo Black', sans-serif; font-size:128px; line-height:.95; letter-spacing:-.05em; color:var(--ink); margin-top:40px; text-transform:uppercase; }
+      .end p { font-family:'IBM Plex Mono', monospace; font-size:28px; letter-spacing:.14em; color:var(--ink); margin-top:44px; }
+      .gridlines { position:absolute; inset:0; pointer-events:none; opacity:.35;
+        background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+        background-size:48px 48px; }
+      .mark0 { position:absolute; left:140px; top:110px; width:14px; height:14px; background:var(--accent); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="14" data-width="1920" data-height="1080">
+      <div class="gridlines" data-layout-ignore></div>
+      <div class="mark0" data-layout-ignore></div>
+
+      <div id="s1" class="clip" data-start="0" data-duration="2.2" data-track-index="0">
+        <div class="full">
+          <p class="eyebrow" id="s1-eyebrow">Uskein Studio · Móvil · Web · A medida</p>
+          <h1 id="s1-title">Software que se queda <em>en tu equipo.</em></h1>
+          <div class="rule" id="s1-rule"></div>
+        </div>
+      </div>
+
+      <div id="s2" class="clip" data-start="2.2" data-duration="2.0" data-track-index="0">
+        <div class="imgbox"><img id="s2-img" src="assets/hero.svg" alt="Catálogo de diez productos" /></div>
+      </div>
+
+      <div id="s3a" class="clip" data-start="4.2" data-duration="2.0" data-track-index="0">
+        <div class="card" style="left:140px">
+          <img id="s3a-img" src="assets/habitos.svg" alt="Pulse Clay" />
+          <div class="meta"><div class="id">US-01</div><div class="name">Pulse Clay</div><div class="tag">Rachas, metas e hitos</div></div>
+        </div>
+      </div>
+      <div id="s3b" class="clip" data-start="6.2" data-duration="2.0" data-track-index="0">
+        <div class="card" style="left:710px">
+          <img id="s3b-img" src="assets/inspector.svg" alt="INSPECTOR" />
+          <div class="meta"><div class="id">US-02</div><div class="name">INSPECTOR</div><div class="tag">Inspección sin señal</div></div>
+        </div>
+      </div>
+      <div id="s3c" class="clip" data-start="8.2" data-duration="2.0" data-track-index="0">
+        <div class="card" style="left:1280px">
+          <img id="s3c-img" src="assets/monedero.svg" alt="Monedero" />
+          <div class="meta"><div class="id">US-03</div><div class="name">Monedero</div><div class="tag">Cuentas cifradas</div></div>
+        </div>
+      </div>
+
+      <div id="s4" class="clip" data-start="10.2" data-duration="1.6" data-track-index="0">
+        <div class="proof"><img id="s4-img" src="assets/real-voynich.png" alt="Captura real de Voynich Codex" /></div>
+        <div class="proof-label">
+          <div class="id">CAPTURA REAL · US-09</div>
+          <h2>Voynich Codex</h2>
+          <p>World-building en local</p>
+        </div>
+      </div>
+
+      <div id="s5" class="clip" data-start="11.8" data-duration="2.2" data-track-index="0">
+        <div class="end">
+          <div class="mark" id="s5-mark"></div>
+          <h2 id="s5-title">Uskein Studio</h2>
+          <p id="s5-cta">MÓVIL · WEB · SISTEMAS A MEDIDA</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const ease = 'power3.out';
+
+      tl.fromTo('#s1-eyebrow', {opacity:0, y:24}, {opacity:1, y:0, duration:.3, ease}, 0)
+        .fromTo('#s1-title', {opacity:0, y:48}, {opacity:1, y:0, duration:.45, ease}, .12)
+        .fromTo('#s1-rule', {scaleX:0, transformOrigin:'left center'}, {scaleX:1, duration:.35, ease}, .4)
+
+        .fromTo('#s2-img', {opacity:0, scale:1.06}, {opacity:1, scale:1, duration:.5, ease}, 2.2)
+
+        .fromTo('#s3a-img', {opacity:0, scale:1.05}, {opacity:1, scale:1, duration:.4, ease}, 4.2)
+        .fromTo('#s3b-img', {opacity:0, scale:1.05}, {opacity:1, scale:1, duration:.4, ease}, 6.2)
+        .fromTo('#s3c-img', {opacity:0, scale:1.05}, {opacity:1, scale:1, duration:.4, ease}, 8.2)
+
+        .fromTo('#s4-img', {opacity:0, x:-40}, {opacity:1, x:0, duration:.4, ease}, 10.2)
+        .fromTo('.proof-label', {opacity:0, x:40}, {opacity:1, x:0, duration:.4, ease}, 10.35)
+
+        .fromTo('#s5-mark', {scale:0, transformOrigin:'center'}, {scale:1, duration:.35, ease}, 11.8)
+        .fromTo('#s5-title', {opacity:0, y:40}, {opacity:1, y:0, duration:.4, ease}, 11.95)
+        .fromTo('#s5-cta', {opacity:0, y:20}, {opacity:1, y:0, duration:.35, ease}, 12.0);
+
+      window.__timelines['main'] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

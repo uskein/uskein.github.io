@@ -80,13 +80,20 @@ var CONFIG = {
 
 **Analítica:** deja los campos vacíos para no cargar nada. Para activar, crea una cuenta gratis en Plausible o Cloudflare Web Analytics y pega el dominio/token.
 
-**Dominio propio:** ya configurado `uskein.com` (`CNAME`, canonical, OG y sitemap apuntan a él).
-Para activarlo falta la configuración DNS en el registrador:
+**Dominio propio (pendiente):** `uskein.com` **no está registrado** (WHOIS/RDAP devuelven disponible). El `CNAME` se retiró temporalmente para que el sitio siga funcionando en `https://uskein.github.io/`.
 
-- Tipo **A** → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-- O un **CNAME** → `uskein.github.io`
+Cuando compres `uskein.com` en cualquier registrador, añade estos registros DNS:
 
-Después marca **Enforce HTTPS** en GitHub → Settings → Pages. Hasta que el DNS propague, el sitio sigue disponible en `https://uskein.github.io/`. Para cambiar de dominio: `node tools/set-domain.mjs nuevo-dominio.com`.
+| Tipo | Nombre | Valor |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+
+(O un único **CNAME** `www` → `uskein.github.io` si solo quieres `www.uskein.com`). En Cloudflare deja el proxy en **DNS only** (nube gris) durante la configuración. Luego activa **Enforce HTTPS** en GitHub → Settings → Pages.
+
+Para activar el dominio en el sitio: `node tools/set-domain.mjs uskein.com` (crea `CNAME` y actualiza canonical/OG/sitemap). Plantilla disponible en `CNAME.example`.
 
 **Media kit:** para regenerar el PDF, abre `media-kit.html` en el navegador y usa el script `Artefactos/qa/make-pdf.mjs` (o imprime a PDF con `preferCSSPageSize`).
 

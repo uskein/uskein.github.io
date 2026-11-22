@@ -4,6 +4,7 @@
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 html { scroll-behavior: smooth; }
 
@@ -142,8 +143,16 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .hero__sub { font-size: clamp(1.05rem, 2vw, 1.375rem); color: var(--text-muted); max-width: 58ch; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: var(--s-4); margin-top: var(--s-8); }
 
-.hero__media { border: var(--border-strong); overflow: hidden; background: var(--surface); }
+.hero__media { position: relative; border: var(--border-strong); overflow: hidden; background: var(--surface); }
 .hero__media img, .hero__media video { width: 100%; height: auto; aspect-ratio: 16/9; display: block; object-fit: contain; }
+.video-toggle {
+  position: absolute; right: var(--s-3); bottom: var(--s-3); z-index: 2;
+  width: 44px; height: 44px; display: grid; place-items: center;
+  background: var(--bg-raised); color: var(--text); border: var(--border-strong);
+  cursor: pointer; transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.video-toggle:hover { background: var(--accent); color: var(--on-accent); }
+.video-toggle svg { width: 18px; height: 18px; }
 
 .video-frame { border: var(--border-strong); background: var(--surface); padding: var(--s-3); }
 .video-frame video { width: 100%; height: auto; aspect-ratio: 16/9; display: block; background: var(--bg); object-fit: contain; }

@@ -80,7 +80,13 @@ var CONFIG = {
 
 **Analítica:** deja los campos vacíos para no cargar nada. Para activar, crea una cuenta gratis en Plausible o Cloudflare Web Analytics y pega el dominio/token.
 
-**Dominio propio:** `node tools/set-domain.mjs uskein.dev` actualiza `CNAME`, canonical, OG y sitemap. Configura el DNS según las instrucciones del script.
+**Dominio propio:** ya configurado `uskein.com` (`CNAME`, canonical, OG y sitemap apuntan a él).
+Para activarlo falta la configuración DNS en el registrador:
+
+- Tipo **A** → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+- O un **CNAME** → `uskein.github.io`
+
+Después marca **Enforce HTTPS** en GitHub → Settings → Pages. Hasta que el DNS propague, el sitio sigue disponible en `https://uskein.github.io/`. Para cambiar de dominio: `node tools/set-domain.mjs nuevo-dominio.com`.
 
 **Media kit:** para regenerar el PDF, abre `media-kit.html` en el navegador y usa el script `Artefactos/qa/make-pdf.mjs` (o imprime a PDF con `preferCSSPageSize`).
 

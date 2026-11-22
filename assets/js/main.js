@@ -233,14 +233,34 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 document.querySelector('.to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* ---------- Respeto a prefers-reduced-motion en el video del hero ---------- */
+/* ---------- Video del hero: bucle continuo + control de pausa ---------- */
 (function () {
   var video = document.querySelector('.hero__media video');
-  if (video && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    video.removeAttribute('autoplay');
-    video.removeAttribute('loop');
-    video.pause();
+  var btn = document.querySelector('#video-toggle');
+  if (!video) return;
+
+  video.loop = true;
+  video.muted = true;
+  video.play().catch(function () {}); // silencioso: lo permite la política de autoplay
+
+  if (!btn) return;
+  function sync() {
+    var paused = video.paused;
+    btn.setAttribute('aria-label', paused ? 'Reproducir video' : 'Pausar video');
+    btn.setAttribute('aria-pressed', String(!paused));
+    var pauseIcon = btn.querySelector('.icon-pause');
+    var playIcon = btn.querySelector('.icon-play');
+    if (pauseIcon) pauseIcon.style.display = paused ? 'none' : 'block';
+    if (playIcon) playIcon.style.display = paused ? 'block' : 'none';
   }
+  btn.addEventListener('click', function () {
+    if (video.paused) video.play().catch(function () {});
+    else video.pause();
+    sync();
+  });
+  video.addEventListener('play', sync);
+  video.addEventListener('pause', sync);
+  sync();
 })();
 
 /* ---------- Calculadora orientativa de presupuesto ---------- */

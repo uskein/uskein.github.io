@@ -4,7 +4,7 @@ Brochure de **Uskein Studio**, agencia freelance que crea aplicaciones móviles,
 
 El enfoque comercial es **vender servicios**; los diez productos se presentan como **proyectos ya realizados** con demos en video (prueba del oficio), no como licencias.
 
-Para promocionarlo: `PROMOCION.md` (plan de 14 días y copys por canal), `LINKEDIN.md` (perfil y primer post), carrusel en `assets/img/carrusel/` y enlaces UTM con `node tools/utm-links.mjs`.
+Para promocionarlo: **`promocion.html`** (kit visual: copys copiables, carrusel, calendario y UTM), `PROMOCION.md` (plan de 14 días), `LINKEDIN.md` (perfil y primer post), carrusel en `assets/img/carrusel/` y enlaces UTM con `node tools/utm-links.mjs`.
 
 Estructura del hub: hero de agencia → servicios → tecnologías → proceso → video → proyectos/demos (con doble filtro) → por qué → resultados verificables → formas de trabajar → calculadora → FAQ → contacto.
 

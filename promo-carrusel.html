@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Carrusel promocional — Uskein Studio</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<style>
+  *, *::before, *::after { box-sizing:border-box; }
+  html, body { margin:0; background:#EDEBE4; font-family:'Archivo', Arial, sans-serif; }
+  .slide { position:relative; width:1080px; height:1080px; overflow:hidden; background:#EDEBE4; color:#14171C; }
+  .grid { position:absolute; inset:0; opacity:.4;
+    background-image:linear-gradient(to right,#C9C6BC 1px,transparent 1px),linear-gradient(to bottom,#C9C6BC 1px,transparent 1px);
+    background-size:54px 54px; }
+  .pad { position:relative; padding:80px; height:100%; display:flex; flex-direction:column; }
+  .brand { display:flex; align-items:center; gap:16px; font-family:'IBM Plex Mono',monospace; font-size:24px; letter-spacing:.16em; color:#575C58; text-transform:uppercase; }
+  .brand i { width:16px; height:16px; background:#5A8F00; display:block; }
+  .kicker { font-family:'IBM Plex Mono',monospace; font-size:22px; letter-spacing:.18em; color:#5A8F00; text-transform:uppercase; margin-top:46px; }
+  h1 { font-family:'Archivo Black', Arial, sans-serif; font-size:88px; line-height:1.02; letter-spacing:-.045em; margin:24px 0 0; text-transform:uppercase; }
+  h1 em { color:#5A8F00; font-style:normal; }
+  h2 { font-family:'Archivo Black', Arial, sans-serif; font-size:62px; line-height:1.05; letter-spacing:-.03em; margin:24px 0 0; text-transform:uppercase; }
+  .sub { font-size:29px; line-height:1.4; color:#575C58; margin-top:28px; max-width:800px; }
+  .foot { margin-top:auto; border-top:1px solid #C9C6BC; padding-top:24px; display:flex; justify-content:space-between; align-items:flex-end; font-family:'IBM Plex Mono',monospace; font-size:19px; color:#575C58; }
+  .foot strong { color:#14171C; font-size:23px; }
+  .mark { position:absolute; right:80px; top:80px; width:26px; height:26px; background:#C8FF3D; border:2px solid #14171C; }
+
+  /* Servicios */
+  .svc { border:2px solid #14171C; background:#F7F6F1; padding:28px 34px; margin-top:20px; border-top:6px solid #5A8F00; }
+  .svc b { font-family:'IBM Plex Mono',monospace; font-size:18px; letter-spacing:.12em; color:#5A8F00; }
+  .svc h3 { font-family:'Archivo Black', Arial, sans-serif; font-size:36px; margin:8px 0 0; text-transform:uppercase; }
+  .svc p { font-size:22px; color:#575C58; margin:8px 0 0; }
+
+  /* Proyectos */
+  .projs { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:34px; }
+  .p { border:2px solid #14171C; background:#F7F6F1; padding:14px; min-height:150px; border-top:5px solid var(--c); }
+  .p b { font-family:'IBM Plex Mono',monospace; font-size:15px; color:var(--c); }
+  .p span { display:block; font-size:17px; font-weight:700; margin-top:18px; line-height:1.15; }
+  .p small { display:block; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5A8F00; margin-top:16px; }
+
+  /* Métricas */
+  .metrics { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:46px; }
+  .m { border-top:4px solid #5A8F00; padding-top:18px; }
+  .m strong { display:block; font-family:'Archivo Black', Arial, sans-serif; font-size:76px; line-height:1; color:#5A8F00; }
+  .m span { font-size:23px; color:#575C58; }
+
+  /* Cierre */
+  .cta h2 { font-size:84px; }
+  .wa { font-family:'IBM Plex Mono',monospace; font-size:30px; margin-top:44px; }
+  .url { font-family:'Archivo Black', Arial, sans-serif; font-size:40px; margin-top:18px; color:#5A8F00; }
+</style>
+</head>
+<body>
+
+<!-- 1 · Portada -->
+<section class="slide" id="slide-1">
+  <div class="grid"></div><div class="mark"></div>
+  <div class="pad">
+    <div class="brand"><i></i>Uskein Studio · Agencia freelance</div>
+    <div class="kicker">Brochure 2026</div>
+    <h1>Tu idea,<br>convertida en <em>software.</em></h1>
+    <p class="sub">Aplicaciones móviles, aplicaciones web y sistemas transaccionales a la medida.</p>
+    <div class="foot"><div><strong>uskein.github.io</strong><br>10 proyectos · demos en video</div><div>EL CÓDIGO Y LOS DATOS SON TUYOS</div></div>
+  </div>
+</section>
+
+<!-- 2 · Servicios -->
+<section class="slide" id="slide-2">
+  <div class="grid"></div><div class="mark"></div>
+  <div class="pad">
+    <div class="brand"><i></i>Uskein Studio · Agencia freelance</div>
+    <div class="kicker">Qué hacemos</div>
+    <h2>Tres servicios,<br>un solo equipo</h2>
+    <div class="svc"><b>01 / MÓVIL</b><h3>Aplicaciones móviles</h3><p>iOS y Android offline-first, SQLite, biometría y publicación en tiendas.</p></div>
+    <div class="svc"><b>02 / WEB</b><h3>Aplicaciones web</h3><p>Portales, paneles y PWA. Rápidas, accesibles y sin dependencias.</p></div>
+    <div class="svc"><b>03 / A MEDIDA</b><h3>Sistemas transaccionales</h3><p>Pagos, reservas, inventario, roles y reportes para tu operación.</p></div>
+    <div class="foot"><div><strong>uskein.github.io</strong></div><div>SIN PLANTILLAS</div></div>
+  </div>
+</section>
+
+<!-- 3 · Proyectos -->
+<section class="slide" id="slide-3">
+  <div class="grid"></div><div class="mark"></div>
+  <div class="pad">
+    <div class="brand"><i></i>Uskein Studio · Agencia freelance</div>
+    <div class="kicker">Proyectos ya realizados</div>
+    <h2>Diez pruebas<br>de lo que sabemos hacer</h2>
+    <div class="projs">
+      <div class="p" style="--c:#8B78FF"><b>US-01</b><span>Pulse Clay</span><small>DEMO</small></div>
+      <div class="p" style="--c:#A8D61F"><b>US-02</b><span>INSPECTOR</span><small>DEMO</small></div>
+      <div class="p" style="--c:#2F7D5B"><b>US-03</b><span>Monedero</span><small>DEMO</small></div>
+      <div class="p" style="--c:#E8A33D"><b>US-04</b><span>ATHENAEUM</span><small>DEMO</small></div>
+      <div class="p" style="--c:#3B82F6"><b>US-05</b><span>ClassDesk</span><small>DEMO</small></div>
+      <div class="p" style="--c:#3E6B60"><b>US-06</b><span>DiarioFit</span><small>DEMO</small></div>
+      <div class="p" style="--c:#1B44C8"><b>US-07</b><span>Galería de Estudio</span><small>DEMO</small></div>
+      <div class="p" style="--c:#C44B22"><b>US-08</b><span>Lumen</span><small>DEMO</small></div>
+      <div class="p" style="--c:#B8860B"><b>US-09</b><span>Voynich Codex</span><small>DEMO</small></div>
+      <div class="p" style="--c:#FF6A2B"><b>US-10</b><span>Kit de Estilos</span><small>DEMO</small></div>
+    </div>
+    <div class="foot"><div><strong>uskein.github.io</strong></div><div>CADA FICHA TIENE SU VIDEO</div></div>
+  </div>
+</section>
+
+<!-- 4 · Resultados -->
+<section class="slide" id="slide-4">
+  <div class="grid"></div><div class="mark"></div>
+  <div class="pad">
+    <div class="brand"><i></i>Uskein Studio · Agencia freelance</div>
+    <div class="kicker">Resultados verificables</div>
+    <h2>No son promesas,<br>son proyectos</h2>
+    <div class="metrics">
+      <div class="m"><strong>10</strong><span>proyectos entregados</span></div>
+      <div class="m"><strong>498</strong><span>pruebas en Monedero</span></div>
+      <div class="m"><strong>23</strong><span>flujos verificados</span></div>
+      <div class="m"><strong>100%</strong><span>offline en campo</span></div>
+    </div>
+    <p class="sub">Cifras tomadas de los proyectos reales. Cada uno tiene ficha y demo en video.</p>
+    <div class="foot"><div><strong>uskein.github.io</strong></div><div>EL CÓDIGO ES TUYO</div></div>
+  </div>
+</section>
+
+<!-- 5 · Cierre -->
+<section class="slide cta" id="slide-5">
+  <div class="grid"></div><div class="mark"></div>
+  <div class="pad">
+    <div class="brand"><i></i>Uskein Studio · Agencia freelance</div>
+    <div class="kicker">Siguiente paso</div>
+    <h2>¿Qué vamos<br>a construir?</h2>
+    <p class="sub">Cuéntame tu problema concreto. En diez segundos puedes ver un presupuesto orientativo en la calculadora del brochure.</p>
+    <p class="wa">WhatsApp +57 313 290 4451</p>
+    <p class="url">uskein.github.io</p>
+    <div class="foot"><div><strong>juansebastianp188@gmail.com</strong></div><div>COLOMBIA · REMOTO</div></div>
+  </div>
+</section>
+
+</body>
+</html>

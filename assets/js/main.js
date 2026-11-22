@@ -18,6 +18,17 @@ var CONFIG = {
 };
 window.USKEIN_CONFIG = CONFIG;
 
+/* ---------- Captura de UTM (para saber de dónde llega cada visita) ---------- */
+var UTM = {};
+try {
+  var params = new URLSearchParams(location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+    if (params.get(k)) UTM[k] = params.get(k);
+  });
+  if (Object.keys(UTM).length) localStorage.setItem('uskein-utm', JSON.stringify(UTM));
+} catch (err) { /* file:// o navegador sin localStorage */ }
+window.USKEIN_UTM = UTM;
+
 /* ---------- Tema ---------- */
 const THEME_KEY = 'uskein-theme';
 const root = document.documentElement;

@@ -90,7 +90,7 @@ function page(p) {
     <div class="container">
       <nav class="breadcrumb" aria-label="Ruta de navegación">
         <a href="../../index.html">Inicio</a><span>/</span>
-        <a href="../../index.html#catalogo">Catálogo</a><span>/</span>
+        <a href="../../index.html#catalogo">Proyectos</a><span>/</span>
         <span>${p.id}</span>
       </nav>
     </div>
@@ -99,7 +99,7 @@ function page(p) {
       <div class="grid-bg" aria-hidden="true"></div>
       <div class="container">
         <div>
-          <p class="pdp-hero__id">${p.id} · ${p.categoryLabel}</p>
+          <p class="pdp-hero__id">${p.id} · Proyecto realizado · ${p.categoryLabel}</p>
           <h1>${p.name}</h1>
           <p class="pdp-hero__tag">${p.tagline}</p>
           <div class="pdp-hero__actions">
@@ -159,21 +159,21 @@ function page(p) {
     ${demoSection}
     <section class="section section--alt">
       <div class="container">
-        <p class="eyebrow reveal">04 · Licencia</p>
-        <h2 class="h2 reveal">Incluido al adquirir ${p.name}</h2>
+        <p class="eyebrow reveal">05 · Tu proyecto</p>
+        <h2 class="h2 reveal">¿Quieres algo así para tu negocio?</h2>
         <div class="contact-grid reveal" style="margin-top:var(--s-10)">
           <div>
             <ul class="audit-list">
               ${p.bullets.map(b => `<li>${check}<span>${b}</span></li>`).join('\n              ')}
             </ul>
-            <p class="lede" style="margin-top:var(--s-8)">Estado actual: <strong>${p.statusLabel}</strong>. Plataforma: ${p.platform}. Construido con ${p.stack}.</p>
+            <p class="lede" style="margin-top:var(--s-8)">Estado del proyecto: <strong>${p.statusLabel}</strong>. Plataforma: ${p.platform}. Construido con ${p.stack}. Este es uno de los diez proyectos ya realizados por Uskein Studio.</p>
           </div>
           <div>
-            <h3 class="h3">¿Lo probamos juntos?</h3>
-            <p class="lede" style="margin-top:var(--s-3)">Cuéntame tu caso y te digo si este producto encaja, sin vueltas.</p>
+            <h3 class="h3">Construimos algo parecido para ti</h3>
+            <p class="lede" style="margin-top:var(--s-3)">Cuéntame tu operación y te propongo un alcance concreto: móvil, web o sistema transaccional.</p>
             <div class="hero__cta" style="margin-top:var(--s-6)">
-              <a class="btn btn--primary" data-wa="Quiero saber más sobre ${p.name}." href="#">Hablar por WhatsApp</a>
-              <a class="btn btn--secondary" data-mail="Consulta sobre ${p.name}" href="#">Enviar correo</a>
+              <a class="btn btn--primary" data-wa="Me gustaría un proyecto similar a ${p.name}." href="#">Pedir propuesta</a>
+              <a class="btn btn--secondary" href="../../index.html#servicios">Ver servicios</a>
             </div>
           </div>
         </div>
@@ -190,10 +190,10 @@ function page(p) {
     <section class="cta-band">
       <div class="container">
         <div>
-          <p class="eyebrow">Catálogo completo</p>
-          <h2 class="h2">Diez productos, una sola conversación.</h2>
+          <p class="eyebrow">Tu próximo proyecto</p>
+          <h2 class="h2">Cuéntame qué necesitas construir.</h2>
         </div>
-        <a class="btn btn--secondary" href="../../index.html#catalogo">Ver catálogo ${arrow}</a>
+        <a class="btn btn--secondary" data-wa="Hola Uskein Studio, quiero cotizar mi proyecto." href="#">Hablemos ${arrow}</a>
       </div>
     </section>
   </main>

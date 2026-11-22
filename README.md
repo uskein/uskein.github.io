@@ -1,8 +1,12 @@
 # Uskein Studio — Brochure comercial
 
-Sitio estático para presentar y vender los 10 productos de software de Uskein **y** sus servicios de desarrollo: aplicaciones móviles, aplicaciones web y sistemas transaccionales a la medida. Sin backend, sin dependencias de pago y listo para publicar en GitHub Pages.
+Brochure de **Uskein Studio**, agencia freelance que crea aplicaciones móviles, aplicaciones web y sistemas transaccionales a la medida. Sitio estático, sin backend y listo para publicar en GitHub Pages.
 
-WhatsApp configurado: **+57 313 290 4451** (`CONFIG.whatsapp` en `assets/js/main.js`).
+El enfoque comercial es **vender servicios**; los diez productos se presentan como **proyectos ya realizados** con demos en video (prueba del oficio), no como licencias.
+
+Estructura del hub: hero de agencia → servicios → proceso → video → proyectos/demos → por qué → formas de trabajar → contacto.
+
+WhatsApp configurado: **+57 313 290 4451** (`CONFIG.whatsapp` en `assets/js/main.js`). Correo: `juansebastianp188@gmail.com`.
 
 ## Ver en local
 

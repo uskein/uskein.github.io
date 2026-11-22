@@ -77,6 +77,7 @@ function renderCatalog() {
         <h3 class="product-card__title">${p.name}</h3>
         <p class="product-card__tag">${p.tagline}</p>
         <div class="product-card__meta">
+          <span class="chip chip--demo">Demo disponible</span>
           <span class="chip">${p.categoryLabel}</span>
           <span class="chip">${p.platform}</span>
         </div>

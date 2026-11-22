@@ -1,5 +1,9 @@
 # Requerimientos funcionales — Brochure Uskein Studio
 
+> **Enfoque vigente (rediseño):** agencia freelance. La oferta son tres servicios — aplicaciones
+> móviles, aplicaciones web y sistemas transaccionales a la medida — y los diez productos se
+> presentan como **proyectos ya realizados** con demos en video, no como licencias de software.
+
 > Estado: aprobado · 2026-11-19 · Deriva de la dirección creativa aprobada y de la arquitectura estática.
 > Showcase visual: `../Requerimientos/REQUERIMIENTOS_VISUAL.html`
 

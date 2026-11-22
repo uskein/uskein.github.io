@@ -39,9 +39,11 @@ assets/img/real-*.png       Capturas reales tomadas de los proyectos
 assets/img/poster.png       Fotograma real del video promocional
 assets/img/moments/*.svg   40 pantallas: 4 momentos × 10 productos
 assets/img/moments/*-poster.png  Pósteres de los 10 demos
+assets/video/hero-agencia.mp4  Video del hero (reemplaza la imagen del catálogo): 12 s en bucle
 assets/video/promo.mp4      Video promocional de 14 s
 assets/video/demo-*.mp4     10 demos de producto: 4 momentos, 16,2 s cada uno
 video/                      Proyecto HyperFrames del video promocional
+video-agencia/              Proyecto HyperFrames del video del hero
 video-<slug>/               Proyectos HyperFrames de los 10 demos
 tools/generate.mjs          Regenera las 10 fichas
 tools/generate-images.mjs   Regenera las imágenes SVG

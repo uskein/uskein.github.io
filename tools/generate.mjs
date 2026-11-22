@@ -53,7 +53,7 @@ function page(p) {
   <link rel="canonical" href="https://uskein.github.io/productos/${p.slug}/">
   <meta property="og:title" content="${p.name} — Uskein Studio">
   <meta property="og:description" content="${p.tagline}">
-  <meta property="og:image" content="https://uskein.github.io/assets/img/moments/${p.slug}-poster.png">
+  <meta property="og:image" content="https://uskein.github.io/assets/img/og-linkedin.png">
   <meta property="og:url" content="https://uskein.github.io/productos/${p.slug}/">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://plausible.io https://static.cloudflareinsights.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formspree.io https://formsubmit.co https://plausible.io https://cloudflareinsights.com;">
   <title>${p.name} — Uskein Studio</title>

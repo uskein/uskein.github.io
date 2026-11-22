@@ -33,7 +33,11 @@ assets/js/main.js           Tema, filtros, formulario, WhatsApp, email
 assets/img/*.svg            Arte promocional vectorial (10 productos + hero)
 assets/img/real-*.png       Capturas reales tomadas de los proyectos
 assets/img/poster.png       Fotograma real del video promocional
+assets/img/moments/*.svg   Cuatro pantallas de Pulse Clay (fieles a sus blueprints)
+assets/img/moments/demo-habitos-poster.png  Póster del demo
 assets/video/promo.mp4      Video promocional de 14 s
+assets/video/demo-habitos.mp4  Demo de la app: 4 momentos, 16,2 s
+video-habitos/              Proyecto HyperFrames del demo de Pulse Clay
 tools/generate.mjs          Regenera las 10 fichas
 tools/generate-images.mjs   Regenera las imágenes SVG
 tools/generate-showcases.mjs Regenera los 5 showcases visuales
@@ -81,6 +85,8 @@ usar en esta carpeta:
 - Verificar: `node ..\.agents\skills\hyperframes\scripts\plugin-cli.mjs check --json`
 - Renderizar: el mismo comando con `render`
 - Regenerar imágenes: `node tools/generate-images.mjs`
+- Regenerar los cuatro momentos: `node tools/generate-moments.mjs`
+- Demo de Pulse Clay: `video-habitos/index.html` → mismo launcher con `render`
 
 > Las imágenes promocionales son SVG propios porque la generación por IA no tenía créditos
 > disponibles. Son vectoriales, nítidas y no añaden dependencias ni peso al sitio.

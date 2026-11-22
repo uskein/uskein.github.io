@@ -6,8 +6,8 @@ skills-lock.json
 video/.hyperframes/
 video/.thumbnails/
 video/renders/
-video-habitos/.hyperframes/
-video-habitos/renders/
+video-*/.hyperframes/
+video-*/renders/
 
 # Evidencia de QA
 Artefactos/qa/

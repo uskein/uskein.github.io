@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root { --bg:#E9EAE6; --surface:#FFFFFF; --ink:#17191A; --muted:#575C58; --accent:#1B44C8; --line:#C9C6BC; }
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--bg); }
+      #root { position:relative; width:100%; height:100%; font-family:'Inter', sans-serif; }
+      .clip { position:absolute; inset:0; }
+      .gridlines { position:absolute; inset:0; pointer-events:none; opacity:.35;
+        background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+        background-size:48px 48px; }
+      .mark0 { position:absolute; left:130px; top:96px; width:16px; height:16px; background:var(--accent); }
+      .intro { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:0 150px; }
+      .kicker { font-family:'IBM Plex Mono', monospace; font-size:30px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase; }
+      h1 { font-family:'Archivo Black', sans-serif; font-size:112px; line-height:1.02; letter-spacing:-.04em; color:var(--ink); margin-top:30px; text-transform:uppercase; }
+      .intro-rule { width:150px; height:6px; background:var(--accent); margin-top:46px; }
+      .phone-wrap { position:absolute; left:250px; top:70px; width:440px; height:940px; border:3px solid var(--line); background:var(--surface); overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.14); }
+      .phone-wrap img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+      .info { position:absolute; left:790px; top:210px; width:960px; }
+      .info .num { font-family:'IBM Plex Mono', monospace; font-size:30px; color:var(--accent); letter-spacing:.14em; }
+      .info h2 { font-family:'Archivo Black', sans-serif; font-size:74px; line-height:1.05; letter-spacing:-.03em; color:var(--ink); margin-top:22px; text-transform:uppercase; }
+      .info .desc { font-size:34px; line-height:1.4; color:var(--muted); margin-top:30px; max-width:900px; }
+      .info .tags { display:flex; gap:14px; margin-top:38px; flex-wrap:wrap; }
+      .info .tag { font-family:'IBM Plex Mono', monospace; font-size:24px; padding:12px 20px; border:2px solid var(--line); color:var(--muted); }
+      .info .tag--on { border-color:var(--accent); color:var(--accent); }
+      .end { position:absolute; inset:0; background:var(--accent); display:flex; flex-direction:column; justify-content:center; padding:0 150px; }
+      .end .mark { width:44px; height:44px; background:#FFFFFF; }
+      .end h2 { font-family:'Archivo Black', sans-serif; font-size:130px; line-height:.95; letter-spacing:-.05em; color:#FFFFFF; margin-top:34px; text-transform:uppercase; }
+      .end p { font-family:'IBM Plex Mono', monospace; font-size:30px; color:#FFFFFF; margin-top:40px; letter-spacing:.06em; }
+      .end small { font-family:'IBM Plex Mono', monospace; font-size:26px; color:#FFFFFF; opacity:.8; margin-top:18px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16.2" data-width="1920" data-height="1080">
+      <div class="gridlines" data-layout-ignore></div>
+      <div class="mark0" data-layout-ignore></div>
+
+      <div id="intro" class="clip" data-start="0" data-duration="2.6" data-track-index="0">
+        <div class="intro">
+          <p class="kicker" id="intro-kicker">US-07 · Galería de Estudio · Demo</p>
+          <h1 id="intro-title">Tu archivo visual, anotado al segundo</h1>
+          <div class="intro-rule" id="intro-rule"></div>
+        </div>
+      </div>
+
+      <div id="s-hoy" class="clip" data-start="2.6" data-duration="2.8" data-track-index="0">
+        <div class="scene">
+          <div class="phone-wrap"><img id="hoy-img" src="assets/moments/galeria-hoy.svg" alt="Pantalla hoy" /></div>
+          <div class="info">
+            <div class="num" id="hoy-num">01 / Galería de Estudio</div>
+            <h2 id="hoy-title">Tu archivo visual, anotado al segundo</h2>
+            <p class="desc" id="hoy-desc">Veinticuatro colecciones con portada, número de catálogo y muro propio.</p>
+            <div class="tags" id="hoy-tags"><span class="tag tag--on">Resumen</span><span class="tag">hoy</span><span class="tag">US-07</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="s-plan" class="clip" data-start="5.4" data-duration="2.8" data-track-index="0">
+        <div class="scene">
+          <div class="phone-wrap"><img id="plan-img" src="assets/moments/galeria-plan.svg" alt="Pantalla plan" /></div>
+          <div class="info">
+            <div class="num" id="plan-num">02 / Galería de Estudio</div>
+            <h2 id="plan-title">Tu archivo visual, anotado al segundo</h2>
+            <p class="desc" id="plan-desc">Video con una nota en 02:14, bucle A–B y velocidad 0,75× con tono preservado.</p>
+            <div class="tags" id="plan-tags"><span class="tag tag--on">Lista</span><span class="tag">plan</span><span class="tag">US-07</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="s-hitos" class="clip" data-start="8.2" data-duration="2.8" data-track-index="0">
+        <div class="scene">
+          <div class="phone-wrap"><img id="hitos-img" src="assets/moments/galeria-hitos.svg" alt="Pantalla hitos" /></div>
+          <div class="info">
+            <div class="num" id="hitos-num">03 / Galería de Estudio</div>
+            <h2 id="hitos-title">Tu archivo visual, anotado al segundo</h2>
+            <p class="desc" id="hitos-desc">Línea de tiempo con 142 assets entre fotos, videos y notas.</p>
+            <div class="tags" id="hitos-tags"><span class="tag tag--on">Colección</span><span class="tag">hitos</span><span class="tag">US-07</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="s-logros" class="clip" data-start="10.999999999999998" data-duration="2.8" data-track-index="0">
+        <div class="scene">
+          <div class="phone-wrap"><img id="logros-img" src="assets/moments/galeria-logros.svg" alt="Pantalla logros" /></div>
+          <div class="info">
+            <div class="num" id="logros-num">04 / Galería de Estudio</div>
+            <h2 id="logros-title">Tu archivo visual, anotado al segundo</h2>
+            <p class="desc" id="logros-desc">Reporte PDF de doce páginas con fotogramas clave y timestamps.</p>
+            <div class="tags" id="logros-tags"><span class="tag tag--on">Estado</span><span class="tag">logros</span><span class="tag">US-07</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="end" class="clip" data-start="13.8" data-duration="2.4" data-track-index="0">
+        <div class="end">
+          <div class="mark" id="end-mark"></div>
+          <h2 id="end-title">Galería de Estudio</h2>
+          <p id="end-cta">DEMO DISPONIBLE · WHATSAPP +57 313 290 4451</p>
+          <small id="end-sub">USKEIN STUDIO · SOFTWARE LOCAL-FIRST</small>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const er = 'power3.out';
+      tl.fromTo('#intro-kicker', {opacity:0, y:20}, {opacity:1, y:0, duration:.3, ease:er}, 0)
+        .fromTo('#intro-title', {opacity:0, y:44}, {opacity:1, y:0, duration:.45, ease:er}, .12)
+        .fromTo('#intro-rule', {scaleX:0, transformOrigin:'left center'}, {scaleX:1, duration:.35, ease:er}, .45)
+        .fromTo('#hoy-img', {opacity:0, x:-50}, {opacity:1, x:0, duration:.4, ease:er}, 2.6)
+        .fromTo('#hoy-num', {opacity:0, y:18}, {opacity:1, y:0, duration:.3, ease:er}, 2.7)
+        .fromTo('#hoy-title', {opacity:0, y:28}, {opacity:1, y:0, duration:.35, ease:er}, 2.8000000000000003)
+        .fromTo('#hoy-desc', {opacity:0, y:20}, {opacity:1, y:0, duration:.35, ease:er}, 2.95)
+        .fromTo('#hoy-tags', {opacity:0, y:16}, {opacity:1, y:0, duration:.35, ease:er}, 3.1)
+        .fromTo('#plan-img', {opacity:0, x:-50}, {opacity:1, x:0, duration:.4, ease:er}, 5.4)
+        .fromTo('#plan-num', {opacity:0, y:18}, {opacity:1, y:0, duration:.3, ease:er}, 5.5)
+        .fromTo('#plan-title', {opacity:0, y:28}, {opacity:1, y:0, duration:.35, ease:er}, 5.6000000000000005)
+        .fromTo('#plan-desc', {opacity:0, y:20}, {opacity:1, y:0, duration:.35, ease:er}, 5.75)
+        .fromTo('#plan-tags', {opacity:0, y:16}, {opacity:1, y:0, duration:.35, ease:er}, 5.9)
+        .fromTo('#hitos-img', {opacity:0, x:-50}, {opacity:1, x:0, duration:.4, ease:er}, 8.2)
+        .fromTo('#hitos-num', {opacity:0, y:18}, {opacity:1, y:0, duration:.3, ease:er}, 8.299999999999999)
+        .fromTo('#hitos-title', {opacity:0, y:28}, {opacity:1, y:0, duration:.35, ease:er}, 8.399999999999999)
+        .fromTo('#hitos-desc', {opacity:0, y:20}, {opacity:1, y:0, duration:.35, ease:er}, 8.549999999999999)
+        .fromTo('#hitos-tags', {opacity:0, y:16}, {opacity:1, y:0, duration:.35, ease:er}, 8.7)
+        .fromTo('#logros-img', {opacity:0, x:-50}, {opacity:1, x:0, duration:.4, ease:er}, 10.999999999999998)
+        .fromTo('#logros-num', {opacity:0, y:18}, {opacity:1, y:0, duration:.3, ease:er}, 11.099999999999998)
+        .fromTo('#logros-title', {opacity:0, y:28}, {opacity:1, y:0, duration:.35, ease:er}, 11.199999999999998)
+        .fromTo('#logros-desc', {opacity:0, y:20}, {opacity:1, y:0, duration:.35, ease:er}, 11.349999999999998)
+        .fromTo('#logros-tags', {opacity:0, y:16}, {opacity:1, y:0, duration:.35, ease:er}, 11.499999999999998)
+        .fromTo('#end-mark', {scale:0, transformOrigin:'center'}, {scale:1, duration:.35, ease:er}, 13.8)
+        .fromTo('#end-title', {opacity:0, y:40}, {opacity:1, y:0, duration:.4, ease:er}, 13.95)
+        .fromTo('#end-cta', {opacity:0, y:20}, {opacity:1, y:0, duration:.35, ease:er}, 14.15)
+        .fromTo('#end-sub', {opacity:0, y:16}, {opacity:1, y:0, duration:.35, ease:er}, 14.35);
+      window.__timelines['main'] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

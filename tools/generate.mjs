@@ -33,7 +33,7 @@ function page(p) {
         <h2 class="h2 reveal">Cuatro momentos, 17 segundos</h2>
         <p class="lede reveal">Recorrido por las pantallas reales del producto: hoy, plan, hitos y logros.</p>
         <div class="video-frame reveal" style="margin-top:var(--s-8)">
-          <video controls preload="none" poster="../../assets/img/moments/demo-habitos-poster.png" aria-label="Video demo de ${p.name}">
+          <video controls preload="none" poster="../../assets/img/moments/${p.slug}-poster.png" aria-label="Video demo de ${p.name}">
             <source src="../../assets/video/${p.demoVideo}" type="video/mp4">
             Tu navegador no soporta video. <a href="../../assets/video/${p.demoVideo}">Descárgalo</a>.
           </video>

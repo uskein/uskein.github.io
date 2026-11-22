@@ -57,7 +57,9 @@
       metrics: [{ value: '100', label: '% offline' }, { value: '22', label: 'Historias' }, { value: '4', label: 'Temas' }],
       bullets: ['Cumplimiento RITG · NTC 2505', 'Operación con guantes y una mano', 'Trazabilidad lista para auditoría'],
       demo: null, code: null,
-      shots: ['Mapa con track', 'Checklist RITG', 'Firma del acta', 'Cola de sincronización']
+      shots: ['Mapa con track', 'Checklist RITG', 'Firma del acta', 'Cola de sincronización'],
+      momentImages: ['inspector-hoy.svg', 'inspector-plan.svg', 'inspector-hitos.svg', 'inspector-logros.svg'],
+      demoVideo: 'demo-inspector.mp4'
     },
     {
       id: 'US-03', slug: 'monedero', name: 'Monedero', category: 'finanzas',
@@ -77,7 +79,9 @@
       metrics: [{ value: '20', label: 'Historias' }, { value: '3', label: 'Plataformas' }, { value: '0', label: 'Nube' }],
       bullets: ['Cifrado real en reposo', 'Móvil y PWA sincronizados por archivo', 'Diseño Clay Serenity'],
       demo: null, code: null,
-      shots: ['Bóveda desbloqueada', 'Dashboard de balance', 'Presupuestos', 'Exportación cifrada']
+      shots: ['Bóveda desbloqueada', 'Dashboard de balance', 'Presupuestos', 'Exportación cifrada'],
+      momentImages: ['monedero-hoy.svg', 'monedero-plan.svg', 'monedero-hitos.svg', 'monedero-logros.svg'],
+      demoVideo: 'demo-monedero.mp4'
     },
     {
       id: 'US-04', slug: 'biblioteca', name: 'ATHENAEUM', category: 'conocimiento',
@@ -97,7 +101,9 @@
       metrics: [{ value: '14', label: 'Épicas' }, { value: '~40', label: 'Entidades' }, { value: '3', label: 'Modos de lectura' }],
       bullets: ['Bibliografías APA/MLA/Chicago/IEEE', 'Grafo de conocimiento', 'Local-first y cifrado'],
       demo: null, code: null,
-      shots: ['Estante', 'Lector sepia', 'Grafo de notas', 'Bibliografía']
+      shots: ['Estante', 'Lector sepia', 'Grafo de notas', 'Bibliografía'],
+      momentImages: ['biblioteca-hoy.svg', 'biblioteca-plan.svg', 'biblioteca-hitos.svg', 'biblioteca-logros.svg'],
+      demoVideo: 'demo-biblioteca.mp4'
     },
     {
       id: 'US-05', slug: 'classdesk', name: 'ClassDesk', category: 'deporte',
@@ -117,7 +123,9 @@
       metrics: [{ value: '13', label: 'Épicas' }, { value: '132', label: 'Criterios' }, { value: '5', label: 'Roles' }],
       bullets: ['Listo para multi-academia', 'Asistencia offline en pista', 'API documentada y probada'],
       demo: null, code: null,
-      shots: ['Panel del dueño', 'Asistencia en pista', 'Agenda', 'Caja y POS']
+      shots: ['Panel del dueño', 'Asistencia en pista', 'Agenda', 'Caja y POS'],
+      momentImages: ['classdesk-hoy.svg', 'classdesk-plan.svg', 'classdesk-hitos.svg', 'classdesk-logros.svg'],
+      demoVideo: 'demo-classdesk.mp4'
     },
     {
       id: 'US-06', slug: 'diario', name: 'DiarioFit', category: 'bienestar',
@@ -137,7 +145,9 @@
       metrics: [{ value: '39', label: 'Ejercicios' }, { value: '100', label: '% local' }, { value: '4', label: 'Estados por pantalla' }],
       bullets: ['Diario + gimnasio en una app', 'Sin cuentas ni analytics', 'Exportación y borrado total'],
       demo: null, code: null,
-      shots: ['Hoy', 'Entrada del diario', 'Sesión en vivo', 'Mi año']
+      shots: ['Hoy', 'Entrada del diario', 'Sesión en vivo', 'Mi año'],
+      momentImages: ['diario-hoy.svg', 'diario-plan.svg', 'diario-hitos.svg', 'diario-logros.svg'],
+      demoVideo: 'demo-diario.mp4'
     },
     {
       id: 'US-07', slug: 'galeria', name: 'Galería de Estudio', category: 'conocimiento',
@@ -157,7 +167,9 @@
       metrics: [{ value: '10', label: 'Épicas' }, { value: '1 px', label: 'Junta de mortero' }, { value: '0', label: 'Radios' }],
       bullets: ['Estudio visual con notas ancladas', 'Búsqueda full-text local', 'Exportación a PDF'],
       demo: null, code: null,
-      shots: ['Muro de colección', 'Video anotado', 'Línea de tiempo', 'Reporte PDF']
+      shots: ['Muro de colección', 'Video anotado', 'Línea de tiempo', 'Reporte PDF'],
+      momentImages: ['galeria-hoy.svg', 'galeria-plan.svg', 'galeria-hitos.svg', 'galeria-logros.svg'],
+      demoVideo: 'demo-galeria.mp4'
     },
     {
       id: 'US-08', slug: 'lector', name: 'Lumen', category: 'conocimiento',
@@ -177,7 +189,9 @@
       metrics: [{ value: 'EPUB3', label: '+ PDF' }, { value: '21', label: 'Historias' }, { value: '0', label: 'Cuentas' }],
       bullets: ['Sin DRM ni compras', 'Accesibilidad de serie', 'Modo calma y colecciones'],
       demo: null, code: null,
-      shots: ['Biblioteca', 'Lector sepia', 'Anotaciones', 'Descubrimiento']
+      shots: ['Biblioteca', 'Lector sepia', 'Anotaciones', 'Descubrimiento'],
+      momentImages: ['lector-hoy.svg', 'lector-plan.svg', 'lector-hitos.svg', 'lector-logros.svg'],
+      demoVideo: 'demo-lector.mp4'
     },
     {
       id: 'US-09', slug: 'voynich', name: 'Voynich Codex', category: 'conocimiento',
@@ -197,7 +211,9 @@
       metrics: [{ value: '1', label: 'Comando' }, { value: '0', label: 'Docker' }, { value: '∞', label: 'Mundos' }],
       bullets: ['Grafo interactivo', 'Todo en SQLite local', 'Sin Docker ni servidores'],
       demo: null, code: null,
-      shots: ['Grafo de mundo', 'Manuscrito', 'Línea de tiempo', 'Personajes']
+      shots: ['Grafo de mundo', 'Manuscrito', 'Línea de tiempo', 'Personajes'],
+      momentImages: ['voynich-hoy.svg', 'voynich-plan.svg', 'voynich-hitos.svg', 'voynich-logros.svg'],
+      demoVideo: 'demo-voynich.mp4'
     },
     {
       id: 'US-10', slug: 'estilos', name: 'Kit de Estilos Visuales', category: 'productividad',
@@ -217,7 +233,9 @@
       metrics: [{ value: '4', label: 'Sistemas' }, { value: '28/28', label: 'Pares AA' }, { value: '0', label: 'Dependencias' }],
       bullets: ['Tokens W3C DTCG importables', 'Prototipos sin build', 'Auditoría de contraste incluida'],
       demo: null, code: null,
-      shots: ['TOPO-HUD', 'ISO-SOLAR', 'ATHENAEUM', 'AURORA CODEX']
+      shots: ['TOPO-HUD', 'ISO-SOLAR', 'ATHENAEUM', 'AURORA CODEX'],
+      momentImages: ['estilos-hoy.svg', 'estilos-plan.svg', 'estilos-hitos.svg', 'estilos-logros.svg'],
+      demoVideo: 'demo-estilos.mp4'
     }
   ];
 

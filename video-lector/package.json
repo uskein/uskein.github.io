@@ -1,0 +1,9 @@
+{
+  "name": "video-lector",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node check.mjs",
+    "render": "node render.mjs"
+  }
+}

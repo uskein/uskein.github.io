@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Media Kit — Uskein Studio</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<style>
+  @page { size: A4; margin: 12mm; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#EDEBE4; color:#14171C; font-family:'Archivo', Arial, sans-serif; font-size:11px; line-height:1.45; }
+  .page { padding:8px; }
+  .brand { display:flex; align-items:center; gap:10px; font-family:'Archivo Black', Arial, sans-serif; font-size:20px; letter-spacing:-.02em; }
+  .brand i { width:10px; height:10px; background:#5A8F00; display:block; }
+  .kicker { font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:#575C58; margin-top:8px; }
+  h1 { font-family:'Archivo Black', Arial, sans-serif; font-size:31px; line-height:1.05; letter-spacing:-.03em; margin:12px 0 8px; text-transform:uppercase; }
+  .lede { color:#575C58; max-width:560px; font-size:11px; }
+  .rule { height:1px; background:#C9C6BC; margin:14px 0; }
+  h2 { font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#5A8F00; margin-bottom:8px; }
+  .cols { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .card { border:1px solid #14171C; background:#F7F6F1; padding:12px; }
+  .card .n { font-family:'IBM Plex Mono', monospace; font-size:9px; color:#5A8F00; }
+  .card h3 { font-family:'Archivo Black', Arial, sans-serif; font-size:14px; margin:7px 0 5px; text-transform:uppercase; }
+  .card p { color:#575C58; font-size:10px; }
+  .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .metric { border-top:3px solid #5A8F00; padding-top:7px; }
+  .metric strong { display:block; font-family:'Archivo Black', Arial, sans-serif; font-size:21px; }
+  .metric span { font-family:'IBM Plex Mono', monospace; font-size:8px; color:#575C58; text-transform:uppercase; }
+  .projects { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .proj { border:1px solid #C9C6BC; background:#F7F6F1; padding:7px; border-top:3px solid var(--c,#5A8F00); }
+  .proj b { display:block; font-family:'IBM Plex Mono', monospace; font-size:8px; color:var(--c,#5A8F00); }
+  .proj span { font-size:9px; font-weight:700; }
+  .footer { margin-top:14px; border-top:1px solid #C9C6BC; padding-top:10px; display:flex; justify-content:space-between; gap:16px; font-family:'IBM Plex Mono', monospace; font-size:9px; color:#575C58; }
+  .footer strong { color:#14171C; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="brand"><i></i>USKEIN STUDIO</div>
+  <p class="kicker">Agencia freelance · Media kit 2026</p>
+  <h1>Tu idea, convertida en software</h1>
+  <p class="lede">Creamos aplicaciones móviles, aplicaciones web y sistemas transaccionales a la medida. Diez proyectos ya realizados, con demos en video, respaldan el trabajo.</p>
+
+  <div class="rule"></div>
+  <h2>Servicios</h2>
+  <div class="cols">
+    <div class="card"><div class="n">01 / MÓVIL</div><h3>Apps móviles</h3><p>iOS y Android offline-first con SQLite, biometría, notificaciones y publicación en tiendas.</p></div>
+    <div class="card"><div class="n">02 / WEB</div><h3>Apps web</h3><p>Portales, paneles y PWA con React. Rápidas, accesibles y desplegables sin coste.</p></div>
+    <div class="card"><div class="n">03 / A MEDIDA</div><h3>Sistemas transaccionales</h3><p>Pagos, reservas, inventario, roles y reportes construidos alrededor de tu operación.</p></div>
+  </div>
+
+  <div class="rule"></div>
+  <h2>Resultados verificables</h2>
+  <div class="metrics">
+    <div class="metric"><strong>10</strong><span>Proyectos entregados</span></div>
+    <div class="metric"><strong>498</strong><span>Pruebas en Monedero</span></div>
+    <div class="metric"><strong>23</strong><span>Flujos verificados</span></div>
+    <div class="metric"><strong>100%</strong><span>Offline en campo</span></div>
+  </div>
+
+  <div class="rule"></div>
+  <h2>Proyectos realizados · demos disponibles</h2>
+  <div class="projects">
+    <div class="proj" style="--c:#8B78FF"><b>US-01</b><span>Pulse Clay</span></div>
+    <div class="proj" style="--c:#A8D61F"><b>US-02</b><span>INSPECTOR</span></div>
+    <div class="proj" style="--c:#2F7D5B"><b>US-03</b><span>Monedero</span></div>
+    <div class="proj" style="--c:#E8A33D"><b>US-04</b><span>ATHENAEUM</span></div>
+    <div class="proj" style="--c:#3B82F6"><b>US-05</b><span>ClassDesk</span></div>
+    <div class="proj" style="--c:#3E6B60"><b>US-06</b><span>DiarioFit</span></div>
+    <div class="proj" style="--c:#1B44C8"><b>US-07</b><span>Galería de Estudio</span></div>
+    <div class="proj" style="--c:#C44B22"><b>US-08</b><span>Lumen</span></div>
+    <div class="proj" style="--c:#B8860B"><b>US-09</b><span>Voynich Codex</span></div>
+    <div class="proj" style="--c:#FF6A2B"><b>US-10</b><span>Kit de Estilos</span></div>
+  </div>
+
+  <div class="footer">
+    <div><strong>WhatsApp</strong> +57 313 290 4451<br><strong>Correo</strong> juansebastianp188@gmail.com</div>
+    <div><strong>Web</strong> https://uskein.github.io/<br><strong>Enfoque</strong> el código, los datos y el control son tuyos</div>
+  </div>
+</div>
+</body>
+</html>

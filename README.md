@@ -4,7 +4,9 @@ Brochure de **Uskein Studio**, agencia freelance que crea aplicaciones móviles,
 
 El enfoque comercial es **vender servicios**; los diez productos se presentan como **proyectos ya realizados** con demos en video (prueba del oficio), no como licencias.
 
-Estructura del hub: hero de agencia → servicios → proceso → video → proyectos/demos → por qué → formas de trabajar → contacto.
+Estructura del hub: hero de agencia → servicios → tecnologías → proceso → video → proyectos/demos (con doble filtro) → por qué → resultados verificables → formas de trabajar → calculadora → FAQ → contacto.
+
+Incluye además: envío de formulario sin cuenta (Formsubmit), SEO (OG, schema.org, sitemap, robots), botón flotante de WhatsApp, pausa del video con `prefers-reduced-motion`, dominio propio configurable y media kit en PDF.
 
 WhatsApp configurado: **+57 313 290 4451** (`CONFIG.whatsapp` en `assets/js/main.js`). Correo: `juansebastianp188@gmail.com`.
 
@@ -27,7 +29,11 @@ python -m http.server 8080
 ## Estructura
 
 ```
-index.html                  Hub: hero, catálogo, por qué, licencias, contacto
+index.html                  Hub completo: servicios, demos, calculadora, FAQ, contacto
+media-kit.html              Media kit de una página (impresión A4)
+assets/USKEIN-STUDIO-Media-Kit.pdf  PDF generado desde media-kit.html
+sitemap.xml / robots.txt    SEO
+CNAME.example               Plantilla de dominio propio
 productos/<slug>/           10 fichas de producto
 assets/css/tokens.css       Design tokens (SSOT visual)
 assets/css/site.css         Componentes y layout
@@ -47,8 +53,11 @@ video-agencia/              Proyecto HyperFrames del video del hero
 video-<slug>/               Proyectos HyperFrames de los 10 demos
 tools/generate.mjs          Regenera las 10 fichas
 tools/generate-images.mjs   Regenera las imágenes SVG
+tools/generate-moments.mjs  Regenera los momentos de Pulse Clay
+tools/generate-moments-others.mjs  Regenera los otros 36 momentos
+tools/generate-demo-projects.mjs  Regenera los proyectos HyperFrames de los demos
+tools/set-domain.mjs        Activa un dominio propio
 tools/generate-showcases.mjs Regenera los 5 showcases visuales
-video/                      Proyecto HyperFrames del video (index.html + assets)
 .agents/skills/             Skills instaladas: HyperFrames + Remotion
 Artefactos/documentacion/   Identidad, arquitectura, producto y flujos
 ```
@@ -59,13 +68,23 @@ Editar `assets/js/main.js`:
 
 ```js
 var CONFIG = {
-  formspreeId: 'TU_FORM_ID',   // Crear en https://formspree.io (plan gratis)
-  whatsapp: '573132904451',    // Ya configurado: +57 313 290 4451
-  email: 'juansebastianp188@gmail.com'
+  formsubmitEmail: 'juansebastianp188@gmail.com', // funciona sin cuenta
+  formspreeId: '',         // opcional: si lo tienes, se usa en vez de Formsubmit
+  whatsapp: '573132904451',  // +57 313 290 4451
+  email: 'juansebastianp188@gmail.com',
+  analytics: { plausibleDomain: '', cloudflareToken: '' }
 };
 ```
 
-También revisar los importes orientativos de la sección `#precios` en `index.html`.
+**Formulario:** con `formspreeId` vacío se usa `formsubmit.co/ajax/<email>`, gratis y sin cuenta. La **primera vez** que alguien envía, Formsubmit envía un correo de confirmación al destinatario; haz clic ahí una sola vez para activarlo. Si prefieres Formspree, crea el formulario y pega su ID.
+
+**Analítica:** deja los campos vacíos para no cargar nada. Para activar, crea una cuenta gratis en Plausible o Cloudflare Web Analytics y pega el dominio/token.
+
+**Dominio propio:** `node tools/set-domain.mjs uskein.dev` actualiza `CNAME`, canonical, OG y sitemap. Configura el DNS según las instrucciones del script.
+
+**Media kit:** para regenerar el PDF, abre `media-kit.html` en el navegador y usa el script `Artefactos/qa/make-pdf.mjs` (o imprime a PDF con `preferCSSPageSize`).
+
+También revisar los importes orientativos de `#precios` y los de la calculadora en `main.js`.
 
 ## Cambiar contenido
 

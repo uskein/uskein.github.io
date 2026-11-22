@@ -6,12 +6,15 @@ var USKEIN_DATA = window.USKEIN_DATA || { CATEGORIES: [], PRODUCTS: [] };
 var CATEGORIES = USKEIN_DATA.CATEGORIES;
 var PRODUCTS = USKEIN_DATA.PRODUCTS;
 
-/* CONFIGURAR ANTES DE PUBLICAR */
+/* CONFIGURACIÓN */
 var CONFIG = {
-  formspreeId: 'TU_FORM_ID',          // https://formspree.io → crear formulario gratis
-  whatsapp: '573132904451',           // Colombia: 57 + 313 290 4451
+  // Envío sin cuenta: Formsubmit.confirma el correo una sola vez. Formspree es opcional.
+  formsubmitEmail: 'juansebastianp188@gmail.com',
+  formspreeId: '',                     // Si lo tienes, se usa en vez de Formsubmit
+  whatsapp: '573132904451',            // Colombia: 57 + 313 290 4451
   email: 'juansebastianp188@gmail.com',
-  whatsappText: 'Hola Uskein Studio, quiero información sobre aplicaciones móviles, aplicaciones web o sistemas transaccionales a la medida.'
+  whatsappText: 'Hola Uskein Studio, quiero información sobre aplicaciones móviles, aplicaciones web o sistemas transaccionales a la medida.',
+  analytics: { plausibleDomain: '', cloudflareToken: '' } // gratis; dejar vacío para no cargar nada
 };
 window.USKEIN_CONFIG = CONFIG;
 
@@ -67,7 +70,7 @@ function renderCatalog() {
   if (!grid) return;
   grid.innerHTML = PRODUCTS.map(p => `
     <a class="product-card reveal" href="productos/${p.slug}/index.html"
-       data-category="${p.category}" style="--card-accent:${p.accent}">
+       data-category="${p.category}" data-services="${(p.services || []).join(' ')}" style="--card-accent:${p.accent}">
       <div class="product-card__media"><img src="assets/img/${p.image}" alt="Vista previa de ${p.name}" loading="lazy"></div>
       <div class="product-card__body">
         <div class="product-card__top">
@@ -92,28 +95,51 @@ function renderCatalog() {
   grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
 
+var SERVICE_FILTERS = [
+  { id: 'all', label: 'Todos los servicios' },
+  { id: 'movil', label: 'Móvil' },
+  { id: 'web', label: 'Web' },
+  { id: 'sistema', label: 'Transaccional' }
+];
+
 function renderFilters() {
-  const bar = document.querySelector('#filters');
-  if (!bar) return;
-  bar.innerHTML = CATEGORIES.map((c, i) =>
+  const catBar = document.querySelector('#filters');
+  if (catBar) catBar.innerHTML = CATEGORIES.map((c, i) =>
     `<button class="chip" type="button" data-filter="${c.id}" aria-pressed="${i === 0}">${c.label}</button>`
+  ).join('');
+  const svcBar = document.querySelector('#service-filters');
+  if (svcBar) svcBar.innerHTML = SERVICE_FILTERS.map((s, i) =>
+    `<button class="chip" type="button" data-service-filter="${s.id}" aria-pressed="${i === 0}">${s.label}</button>`
   ).join('');
 }
 
 renderFilters();
 renderCatalog();
 
-/* ---------- Filtros del catálogo ---------- */
-const chips = document.querySelectorAll('.chip[data-filter]');
-const cards = document.querySelectorAll('.product-card[data-category]');
-chips.forEach(chip => chip.addEventListener('click', () => {
-  const filter = chip.dataset.filter;
-  chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
-  cards.forEach(card => {
-    const show = filter === 'all' || card.dataset.category === filter;
-    card.hidden = !show;
+/* ---------- Filtros combinados (categoría + servicio) ---------- */
+var activeCategory = 'all';
+var activeService = 'all';
+function applyFilters() {
+  document.querySelectorAll('.product-card[data-category]').forEach(function (card) {
+    var catOk = activeCategory === 'all' || card.dataset.category === activeCategory;
+    var svcOk = activeService === 'all' || (card.dataset.services || '').split(' ').indexOf(activeService) !== -1;
+    card.hidden = !(catOk && svcOk);
   });
-}));
+}
+document.querySelectorAll('.chip[data-filter]').forEach(function (chip) {
+  chip.addEventListener('click', function () {
+    activeCategory = chip.dataset.filter;
+    document.querySelectorAll('.chip[data-filter]').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+    applyFilters();
+  });
+});
+document.querySelectorAll('.chip[data-service-filter]').forEach(function (chip) {
+  chip.addEventListener('click', function () {
+    activeService = chip.dataset.serviceFilter;
+    document.querySelectorAll('.chip[data-service-filter]').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+    applyFilters();
+  });
+});
 
 /* ---------- Toast ---------- */
 function toast(message, type = 'ok') {
@@ -152,12 +178,30 @@ if (form) {
     submitBtn.textContent = 'Enviando…';
 
     try {
-      if (!CONFIG.formspreeId || CONFIG.formspreeId.startsWith('TU_')) throw new Error('Formspree no configurado');
-      const res = await fetch(`https://formspree.io/f/${CONFIG.formspreeId}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      var res;
+      if (CONFIG.formspreeId) {
+        res = await fetch('https://formspree.io/f/' + CONFIG.formspreeId, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } else {
+        // Formsubmit: sin cuenta. El primer envío requiere confirmar el correo una vez.
+        res = await fetch('https://formsubmit.co/ajax/' + CONFIG.formsubmitEmail, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            nombre: data.nombre,
+            email: data.email,
+            interes: data.interes,
+            mensaje: data.mensaje,
+            website: data.website,
+            _subject: 'Nueva consulta desde Uskein Studio',
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+      }
       if (!res.ok) throw new Error('Error al enviar');
       toast('Mensaje enviado. Te responderé pronto.');
       form.reset();
@@ -188,3 +232,63 @@ window.addEventListener('scroll', () => {
   if (btn) btn.classList.toggle('is-visible', window.scrollY > 600);
 }, { passive: true });
 document.querySelector('.to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ---------- Respeto a prefers-reduced-motion en el video del hero ---------- */
+(function () {
+  var video = document.querySelector('.hero__media video');
+  if (video && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video.removeAttribute('autoplay');
+    video.removeAttribute('loop');
+    video.pause();
+  }
+})();
+
+/* ---------- Calculadora orientativa de presupuesto ---------- */
+(function () {
+  var tipo = document.querySelector('#calc-tipo');
+  var alcance = document.querySelector('#calc-alcance');
+  if (!tipo || !alcance) return;
+  var base = { movil: 1200, web: 900, sistema: 1800 };
+  var factor = { mvp: 1, completo: 1.8, multi: 3.2 };
+  var etiqueta = { movil: 'app móvil', web: 'app web', sistema: 'sistema transaccional' };
+  var alcanceTxt = { mvp: 'MVP', completo: 'versión completa', multi: 'multi-tenant / operación completa' };
+  var result = document.querySelector('#calc-result');
+  var wa = document.querySelector('#calc-wa');
+
+  function fmt(n) { return Math.round(n / 100) * 100; }
+  function update() {
+    var t = tipo.value, a = alcance.value;
+    var min = fmt(base[t] * factor[a]);
+    var max = fmt(min * 1.4);
+    var text = 'USD ' + min.toLocaleString('es-CO') + ' – ' + max.toLocaleString('es-CO');
+    if (result) result.textContent = text;
+    if (wa) {
+      wa.dataset.wa = 'Hola Uskein Studio, quiero ' + etiqueta[t] + ' con ' + alcanceTxt[a] + '. Presupuesto orientativo: ' + text + '.';
+      wa.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(wa.dataset.wa);
+      wa.target = '_blank';
+      wa.rel = 'noopener noreferrer';
+    }
+  }
+  tipo.addEventListener('change', update);
+  alcance.addEventListener('change', update);
+  update();
+})();
+
+/* ---------- Analítica opcional y sin cookies ---------- */
+(function () {
+  var a = CONFIG.analytics || {};
+  if (a.plausibleDomain) {
+    var p = document.createElement('script');
+    p.defer = true;
+    p.src = 'https://plausible.io/js/script.js';
+    p.setAttribute('data-domain', a.plausibleDomain);
+    document.head.appendChild(p);
+  }
+  if (a.cloudflareToken) {
+    var c = document.createElement('script');
+    c.defer = true;
+    c.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    c.setAttribute('data-cf-beacon', JSON.stringify({ token: a.cloudflareToken }));
+    document.head.appendChild(c);
+  }
+})();

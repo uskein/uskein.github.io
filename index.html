@@ -6,7 +6,33 @@
   <meta name="theme-color" content="#EDEBE4">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E1116'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%23C8FF3D'/%3E%3C/svg%3E">
   <meta name="description" content="Uskein Studio — agencia freelance. Creamos aplicaciones móviles, aplicaciones web y sistemas transaccionales a la medida. Diez proyectos realizados con demos en video.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; media-src 'self'; connect-src https://formspree.io;">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Uskein Studio">
+  <meta property="og:title" content="Uskein Studio — Software a la medida">
+  <meta property="og:description" content="Agencia freelance: apps móviles, apps web y sistemas transaccionales a la medida. Diez proyectos realizados con demos en video.">
+  <meta property="og:image" content="https://uskein.github.io/assets/img/hero-agencia-poster.png">
+  <meta property="og:url" content="https://uskein.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Uskein Studio — Software a la medida">
+  <meta name="twitter:description" content="Apps móviles, web y sistemas transaccionales a la medida. Diez proyectos con demos en video.">
+  <meta name="twitter:image" content="https://uskein.github.io/assets/img/hero-agencia-poster.png">
+  <link rel="canonical" href="https://uskein.github.io/">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://plausible.io https://static.cloudflareinsights.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formspree.io https://formsubmit.co https://plausible.io https://cloudflareinsights.com;">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Uskein Studio",
+    "description": "Agencia freelance que crea aplicaciones móviles, aplicaciones web y sistemas transaccionales a la medida.",
+    "url": "https://uskein.github.io/",
+    "email": "juansebastianp188@gmail.com",
+    "telephone": "+573132904451",
+    "areaServed": "Colombia y remoto",
+    "priceRange": "$$",
+    "serviceType": ["Desarrollo de aplicaciones móviles", "Desarrollo de aplicaciones web", "Sistemas transaccionales a la medida"]
+  }
+  </script>
   <title>Uskein Studio — Software a la medida</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,6 +142,19 @@
       </div>
     </section>
 
+    <!-- STACK -->
+    <section class="section section--tight" id="stack">
+      <div class="container">
+        <p class="eyebrow reveal">Tecnologías que usamos</p>
+        <div class="stack-strip reveal" aria-label="Tecnologías principales">
+          <span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Expo</span>
+          <span class="chip">React Native</span><span class="chip">SQLite</span><span class="chip">PostgreSQL</span>
+          <span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">Tailwind</span>
+          <span class="chip">GitHub Pages</span>
+        </div>
+      </div>
+    </section>
+
     <!-- PROCESO -->
     <section class="section" id="proceso">
       <div class="container">
@@ -152,7 +191,8 @@
         <h2 class="h2 reveal">Pruebas de lo que sabemos hacer</h2>
         <p class="lede reveal">No son plantillas ni conceptos: son diez productos ya construidos. Cada ficha muestra sus momentos reales y un demo en video para que juzgues el resultado.</p>
         <div class="rule"></div>
-        <div class="filters" id="filters" role="group" aria-label="Filtrar proyectos"></div>
+        <div class="filters" id="filters" role="group" aria-label="Filtrar proyectos por categoría"></div>
+        <div class="filters filters--services" id="service-filters" role="group" aria-label="Filtrar proyectos por servicio"></div>
         <div class="product-grid" id="product-grid"></div>
         <noscript>
           <div class="placa" style="margin-top:var(--s-8)">
@@ -195,6 +235,32 @@
       </div>
     </section>
 
+    <!-- RESULTADOS -->
+    <section class="section section--alt" id="resultados">
+      <div class="container">
+        <p class="eyebrow reveal">Prueba social</p>
+        <h2 class="h2 reveal">Resultados verificables, no promesas</h2>
+        <p class="lede reveal">Cifras tomadas de los proyectos que ya construimos. Cada uno tiene su ficha y su demo.</p>
+        <div class="values reveal" style="margin-top:var(--s-10)">
+          <article class="value">
+            <span class="value__num">01 / MONEDERO</span>
+            <h3 class="h3">498 pruebas en verde</h3>
+            <p>Gestor financiero certificado, con cifrado real y CI en GitHub. El producto es la ausencia de backend.</p>
+          </article>
+          <article class="value">
+            <span class="value__num">02 / INSPECTOR</span>
+            <h3 class="h3">100 % en campo</h3>
+            <p>Inspecciones con GPS, actas firmadas y sincronización diferida. Funciona donde no hay cobertura.</p>
+          </article>
+          <article class="value">
+            <span class="value__num">03 / PULSE CLAY</span>
+            <h3 class="h3">23 flujos verificados</h3>
+            <p>App de hábitos con racha, hitos y respaldo cifrado. Producción con APK y build de tienda.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- CÓMO TRABAJAMOS / INVERSIÓN -->
     <section class="section" id="precios">
       <div class="container">
@@ -232,6 +298,57 @@
             </ul>
             <a class="btn btn--secondary btn--block" href="#contacto">Pedir propuesta</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section class="section section--alt" id="calculadora">
+      <div class="container">
+        <p class="eyebrow reveal">Presupuesto orientativo</p>
+        <h2 class="h2 reveal">Descubre un rango en diez segundos</h2>
+        <p class="lede reveal">Elige qué necesitas y recibe una estimación. Luego la llevamos al WhatsApp y ajustamos el alcance contigo.</p>
+        <div class="calculator reveal" style="margin-top:var(--s-10)">
+          <div class="field">
+            <label for="calc-tipo">¿Qué necesitas?</label>
+            <select id="calc-tipo">
+              <option value="movil">Aplicación móvil</option>
+              <option value="web">Aplicación web</option>
+              <option value="sistema">Sistema transaccional</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="calc-alcance">Alcance</label>
+            <select id="calc-alcance">
+              <option value="mvp">MVP para validar</option>
+              <option value="completo">Versión completa</option>
+              <option value="multi">Operación multi-tenant</option>
+            </select>
+          </div>
+          <div class="calc-result">
+            <span class="metric__label">Rango estimado</span>
+            <strong id="calc-result">—</strong>
+          </div>
+          <a class="btn btn--primary btn--block" id="calc-wa" data-wa="Quiero cotizar un proyecto." href="#">Enviar por WhatsApp
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="calc-note">Importe orientativo de lanzamiento. El precio final se cierra con el alcance acordado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <p class="eyebrow reveal">Preguntas frecuentes</p>
+        <h2 class="h2 reveal">Lo que suelen preguntarme</h2>
+        <div class="faq reveal" style="margin-top:var(--s-10)">
+          <details><summary>¿Cuánto tarda un proyecto?</summary><p>Un MVP suele estar en producción en 4 a 8 semanas. Un sistema transaccional completo, entre 8 y 16 semanas. El alcance se define antes de empezar y se entrega por módulos.</p></details>
+          <details><summary>¿Quién es dueño del código?</summary><p>Tú. Entrego el repositorio, la documentación y el acceso al despliegue. No hay licencias cautivas ni dependencia de mi persona para mantenerlo.</p></details>
+          <details><summary>¿Trabajas con mi equipo?</summary><p>Sí. Puedo integrarme con tus diseñadores, backend o producto, usar tus repositorios y seguir tus convenciones y revisiones.</p></details>
+          <details><summary>¿Qué pasa si cambia el alcance?</summary><p>Lo registramos por escrito y ajustamos alcance, tiempo y precio antes de implementarlo. Sin sorpresas en la factura.</p></details>
+          <details><summary>¿Los datos salen de mi dispositivo o servidor?</summary><p>Diseño por defecto local-first y sin telemetría. Si el proyecto requiere nube, se define contigo dónde vive la información y quién puede acceder.</p></details>
+          <details><summary>¿Puedo ver algo antes de contratar?</summary><p>Sí: los diez proyectos de arriba tienen ficha con sus momentos y un demo en video. Son trabajos reales, no plantillas.</p></details>
         </div>
       </div>
     </section>
@@ -341,6 +458,10 @@
       </div>
     </div>
   </footer>
+
+  <a class="wa-float" data-wa="Hola Uskein Studio, quiero cotizar un proyecto." href="#" aria-label="Hablar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.7 9.7 0 0 1-3-.5L3 21l1.6-5a8.4 8.4 0 1 1 16.4-4.5Z"/><path d="M9 9.5c.2 2.7 2.8 5.3 5.5 5.5l1.3-1.4 2 .9c.3.1.4.4.3.7-.6 1.5-2.3 2.3-4.4 1.9-3.4-.6-6.1-3.3-6.7-6.7-.4-2.1.4-3.8 1.9-4.4.3-.1.6 0 .7.3l.9 2L9 9.5Z"/></svg>
+  </a>
 
   <div class="toast-stack" aria-live="polite"></div>
   <button class="to-top" type="button" aria-label="Volver arriba">

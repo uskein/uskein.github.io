@@ -37,7 +37,7 @@
       code: 'https://github.com/uskein/habitos',
       shots: ['Feed de hoy', 'Plan y metas', 'Top hitos', 'Vitrina de logros'],
       momentImages: ['habitos-hoy.svg', 'habitos-plan.svg', 'habitos-hitos.svg', 'habitos-logros.svg'],
-      demoVideo: 'demo-habitos.mp4'
+      demoVideo: 'demo-habitos.mp4', services: ['movil']
     },
     {
       id: 'US-02', slug: 'inspector', name: 'INSPECTOR', category: 'campo',
@@ -59,7 +59,7 @@
       demo: null, code: null,
       shots: ['Mapa con track', 'Checklist RITG', 'Firma del acta', 'Cola de sincronización'],
       momentImages: ['inspector-hoy.svg', 'inspector-plan.svg', 'inspector-hitos.svg', 'inspector-logros.svg'],
-      demoVideo: 'demo-inspector.mp4'
+      demoVideo: 'demo-inspector.mp4', services: ['movil']
     },
     {
       id: 'US-03', slug: 'monedero', name: 'Monedero', category: 'finanzas',
@@ -81,7 +81,7 @@
       demo: null, code: null,
       shots: ['Bóveda desbloqueada', 'Dashboard de balance', 'Presupuestos', 'Exportación cifrada'],
       momentImages: ['monedero-hoy.svg', 'monedero-plan.svg', 'monedero-hitos.svg', 'monedero-logros.svg'],
-      demoVideo: 'demo-monedero.mp4'
+      demoVideo: 'demo-monedero.mp4', services: ['movil', 'web']
     },
     {
       id: 'US-04', slug: 'biblioteca', name: 'ATHENAEUM', category: 'conocimiento',
@@ -103,7 +103,7 @@
       demo: null, code: null,
       shots: ['Estante', 'Lector sepia', 'Grafo de notas', 'Bibliografía'],
       momentImages: ['biblioteca-hoy.svg', 'biblioteca-plan.svg', 'biblioteca-hitos.svg', 'biblioteca-logros.svg'],
-      demoVideo: 'demo-biblioteca.mp4'
+      demoVideo: 'demo-biblioteca.mp4', services: ['web']
     },
     {
       id: 'US-05', slug: 'classdesk', name: 'ClassDesk', category: 'deporte',
@@ -125,7 +125,7 @@
       demo: null, code: null,
       shots: ['Panel del dueño', 'Asistencia en pista', 'Agenda', 'Caja y POS'],
       momentImages: ['classdesk-hoy.svg', 'classdesk-plan.svg', 'classdesk-hitos.svg', 'classdesk-logros.svg'],
-      demoVideo: 'demo-classdesk.mp4'
+      demoVideo: 'demo-classdesk.mp4', services: ['movil', 'web', 'sistema']
     },
     {
       id: 'US-06', slug: 'diario', name: 'DiarioFit', category: 'bienestar',
@@ -147,7 +147,7 @@
       demo: null, code: null,
       shots: ['Hoy', 'Entrada del diario', 'Sesión en vivo', 'Mi año'],
       momentImages: ['diario-hoy.svg', 'diario-plan.svg', 'diario-hitos.svg', 'diario-logros.svg'],
-      demoVideo: 'demo-diario.mp4'
+      demoVideo: 'demo-diario.mp4', services: ['movil']
     },
     {
       id: 'US-07', slug: 'galeria', name: 'Galería de Estudio', category: 'conocimiento',
@@ -169,7 +169,7 @@
       demo: null, code: null,
       shots: ['Muro de colección', 'Video anotado', 'Línea de tiempo', 'Reporte PDF'],
       momentImages: ['galeria-hoy.svg', 'galeria-plan.svg', 'galeria-hitos.svg', 'galeria-logros.svg'],
-      demoVideo: 'demo-galeria.mp4'
+      demoVideo: 'demo-galeria.mp4', services: ['movil']
     },
     {
       id: 'US-08', slug: 'lector', name: 'Lumen', category: 'conocimiento',
@@ -191,7 +191,7 @@
       demo: null, code: null,
       shots: ['Biblioteca', 'Lector sepia', 'Anotaciones', 'Descubrimiento'],
       momentImages: ['lector-hoy.svg', 'lector-plan.svg', 'lector-hitos.svg', 'lector-logros.svg'],
-      demoVideo: 'demo-lector.mp4'
+      demoVideo: 'demo-lector.mp4', services: ['movil']
     },
     {
       id: 'US-09', slug: 'voynich', name: 'Voynich Codex', category: 'conocimiento',
@@ -213,7 +213,7 @@
       demo: null, code: null,
       shots: ['Grafo de mundo', 'Manuscrito', 'Línea de tiempo', 'Personajes'],
       momentImages: ['voynich-hoy.svg', 'voynich-plan.svg', 'voynich-hitos.svg', 'voynich-logros.svg'],
-      demoVideo: 'demo-voynich.mp4'
+      demoVideo: 'demo-voynich.mp4', services: ['web']
     },
     {
       id: 'US-10', slug: 'estilos', name: 'Kit de Estilos Visuales', category: 'productividad',
@@ -235,7 +235,7 @@
       demo: null, code: null,
       shots: ['TOPO-HUD', 'ISO-SOLAR', 'ATHENAEUM', 'AURORA CODEX'],
       momentImages: ['estilos-hoy.svg', 'estilos-plan.svg', 'estilos-hitos.svg', 'estilos-logros.svg'],
-      demoVideo: 'demo-estilos.mp4'
+      demoVideo: 'demo-estilos.mp4', services: ['web']
     }
   ];
 

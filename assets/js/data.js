@@ -35,7 +35,9 @@
       bullets: ['APK instalable listo para probar', '23 flujos cubiertos con pruebas', 'Diseño Pulse Clay documentado'],
       demo: 'https://expo.dev/artifacts/eas/m0EBwM3O1ckRRzvggOcfwxRCAXGAgu2NMQc55QqkNmk.apk', demoLabel: 'Descargar APK',
       code: 'https://github.com/uskein/habitos',
-      shots: ['Feed de hoy', 'Plan y metas', 'Top hitos', 'Vitrina de logros']
+      shots: ['Feed de hoy', 'Plan y metas', 'Top hitos', 'Vitrina de logros'],
+      momentImages: ['habitos-hoy.svg', 'habitos-plan.svg', 'habitos-hitos.svg', 'habitos-logros.svg'],
+      demoVideo: 'demo-habitos.mp4'
     },
     {
       id: 'US-02', slug: 'inspector', name: 'INSPECTOR', category: 'campo',

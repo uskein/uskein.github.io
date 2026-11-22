@@ -26,6 +26,21 @@ function page(p) {
   const realShot = p.image.startsWith('real-')
     ? `<div class="shot shot--real"><img src="../../assets/img/${p.image}" alt="Captura real de ${p.name}" loading="lazy"></div>`
     : '';
+  const demoSection = p.demoVideo ? `
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow reveal">03 · Demo en video</p>
+        <h2 class="h2 reveal">Cuatro momentos, 17 segundos</h2>
+        <p class="lede reveal">Recorrido por las pantallas reales del producto: hoy, plan, hitos y logros.</p>
+        <div class="video-frame reveal" style="margin-top:var(--s-8)">
+          <video controls preload="none" poster="../../assets/img/moments/demo-habitos-poster.png" aria-label="Video demo de ${p.name}">
+            <source src="../../assets/video/${p.demoVideo}" type="video/mp4">
+            Tu navegador no soporta video. <a href="../../assets/video/${p.demoVideo}">Descárgalo</a>.
+          </video>
+        </div>
+      </div>
+    </section>
+` : '';
 
   return `<!doctype html>
 <html lang="es" data-theme="light">
@@ -134,14 +149,17 @@ function page(p) {
         <p class="lede reveal">Composiciones de retícula que anticipan la estructura real de la aplicación.</p>
         <div class="shots reveal" style="margin-top:var(--s-10)">
           ${realShot}
-          ${p.shots.map((s, i) => `<div class="shot"><span class="shot__label">${String(i + 1).padStart(2, '0')} · ${s}</span></div>`).join('\n          ')}
+          ${p.momentImages
+            ? p.momentImages.map((img, i) => `<div class="shot shot--moment"><img src="../../assets/img/moments/${img}" alt="${p.shots[i]}" loading="lazy"><span class="shot__label">${String(i + 1).padStart(2, '0')} · ${p.shots[i]}</span></div>`).join('\n          ')
+            : p.shots.map((s, i) => `<div class="shot"><span class="shot__label">${String(i + 1).padStart(2, '0')} · ${s}</span></div>`).join('\n          ')}
         </div>
       </div>
     </section>
 
+    ${demoSection}
     <section class="section section--alt">
       <div class="container">
-        <p class="eyebrow reveal">03 · Licencia</p>
+        <p class="eyebrow reveal">04 · Licencia</p>
         <h2 class="h2 reveal">Incluido al adquirir ${p.name}</h2>
         <div class="contact-grid reveal" style="margin-top:var(--s-10)">
           <div>

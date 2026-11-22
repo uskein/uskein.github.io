@@ -9,6 +9,12 @@
 }
 .shot--real { aspect-ratio: 3/4; padding: 0; }
 .shot--real img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.shot--moment img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.shot--moment .shot__label {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  background: var(--bg-raised); border-top: var(--border);
+  padding: var(--s-3); text-align: center;
+}
 
 .pdp-art {
   position: relative; aspect-ratio: 4/3; border: var(--border-strong);

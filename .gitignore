@@ -2,10 +2,12 @@
 .agents/
 skills-lock.json
 
-# Proyecto de video: cachés, vistas previas y renders duplicados
+# Proyectos de video: cachés, vistas previas y renders duplicados
 video/.hyperframes/
 video/.thumbnails/
 video/renders/
+video-habitos/.hyperframes/
+video-habitos/renders/
 
 # Evidencia de QA
 Artefactos/qa/

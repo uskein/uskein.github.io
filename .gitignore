@@ -9,6 +9,9 @@ video/renders/
 video-*/.hyperframes/
 video-*/renders/
 
+# Artefactos internos de HyperFrames en la raíz
+.hyperframes/
+
 # Evidencia de QA
 Artefactos/qa/
 

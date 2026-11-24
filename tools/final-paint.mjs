@@ -19,21 +19,22 @@ const lobes = [
   [250, 0, 38, -6, null]
 ];
 
-let d = `M0,0 H1440 V${B} `;
+let bottomPath = '';
 for (const [xR, xL, depth, skew, drip] of lobes) {
   const xb = xR - (xR - xL) * 0.46 + skew;
-  d += `C${xR - 26},${B + depth * 0.74} ${xb + 22},${B + depth} ${xb},${B + depth} `;
+  bottomPath += `C${xR - 26},${B + depth * 0.74} ${xb + 22},${B + depth} ${xb},${B + depth} `;
   if (drip) {
     const [bulbY, r] = drip;
     const nw = 7;
-    d += `C${xb + nw},${B + depth + 24} ${xb + nw},${bulbY - r - 14} ${xb},${bulbY - r} `;
-    d += `A${r},${r} 0 1 0 ${xb},${bulbY + r} `;
-    d += `A${r},${r} 0 1 0 ${xb},${bulbY - r} `;
-    d += `C${xb - nw},${bulbY - r - 14} ${xb - nw},${B + depth + 24} ${xb},${B + depth} `;
+    bottomPath += `C${xb + nw},${B + depth + 24} ${xb + nw},${bulbY - r - 14} ${xb},${bulbY - r} `;
+    bottomPath += `A${r},${r} 0 1 0 ${xb},${bulbY + r} `;
+    bottomPath += `A${r},${r} 0 1 0 ${xb},${bulbY - r} `;
+    bottomPath += `C${xb - nw},${bulbY - r - 14} ${xb - nw},${B + depth + 24} ${xb},${B + depth} `;
   }
-  d += `C${xb - 22},${B + depth} ${xL + 26},${B + depth * 0.74} ${xL},${B} `;
+  bottomPath += `C${xb - 22},${B + depth} ${xL + 26},${B + depth * 0.74} ${xL},${B} `;
 }
-d += 'H0 Z';
+const d = `M0,0 H1440 V${B} ${bottomPath}H0 Z`;
+const edgeD = `M1440,${B} ${bottomPath}`;
 
 const svg = `<div class="nav-paint" aria-hidden="true">
       <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
@@ -46,7 +47,7 @@ const svg = `<div class="nav-paint" aria-hidden="true">
         </defs>
         <path class="paint-shadow" d="${d}"/>
         <path class="paint-base" d="${d}"/>
-        <path class="paint-edge" d="${d}"/>
+        <path class="paint-edge" d="${edgeD}"/>
       </svg>
     </div>`;
 

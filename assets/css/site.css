@@ -89,29 +89,22 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 @keyframes seal-spin { to { transform: rotate(360deg); } }
 
-.header-drips { position: absolute; inset: auto 0 -1px 0; height: 28px; pointer-events: none; z-index: 1; }
-.header-drips .drip {
-  position: absolute; top: 0; width: 5px; background: var(--accent); opacity: .85;
-  border-radius: 0 0 3px 3px; transform-origin: top center;
-  animation: drip-fall 3.4s var(--ease) infinite, drip-sway 4.2s ease-in-out infinite;
+.nav-paint {
+  position: absolute; left: 0; right: 0; top: 100%; height: 116px;
+  pointer-events: none; z-index: 1; overflow: visible;
 }
-.header-drips .drip::after {
-  content: ''; position: absolute; left: -1px; bottom: -3px; width: 7px; height: 7px;
-  background: var(--accent); border-radius: 50%;
+.nav-paint svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.nav-paint .paint-shadow { fill: var(--paint-dark); transform: translateY(6px); opacity: .55; }
+.nav-paint .paint-base { fill: var(--paint); }
+.nav-paint .paint-light { fill: var(--paint-light); opacity: .9; }
+.nav-paint .paint-accent { fill: var(--paint-accent); opacity: .95; }
+.nav-paint .paint-drop { fill: var(--paint); }
+@keyframes paint-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
 }
-.header-drips .drip--1 { left: 12%; height: 13px; animation-delay: 0s, .2s; }
-.header-drips .drip--2 { left: 31%; height: 22px; animation-delay: .5s, .7s; }
-.header-drips .drip--3 { left: 58%; height: 9px; animation-delay: 1.1s, .1s; }
-.header-drips .drip--4 { left: 81%; height: 17px; animation-delay: .8s, .4s; }
-@keyframes drip-fall {
-  0% { transform: translateY(-8px); opacity: 0; }
-  35% { opacity: .85; }
-  100% { transform: translateY(2px); opacity: .85; }
-}
-@keyframes drip-sway {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
-}
+.nav-paint svg { animation: paint-breathe 6s var(--ease) infinite; }
+@media (prefers-reduced-motion: reduce) { .nav-paint svg { animation: none; } }
 
 /* Esquinas HUD en contenedores */
 .product-card, .service-card, .placa, .calculator, .video-frame { position: relative; }
@@ -182,7 +175,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .btn--sm { min-height: 40px; padding-inline: var(--s-4); font-size: var(--fs-xs); }
 
 /* ---------- Hero ---------- */
-.hero { padding-block: var(--s-24) var(--s-20); overflow: hidden; }
+.hero { padding-block: 144px var(--s-20); overflow: hidden; }
 .hero .container { display: grid; gap: var(--s-10); }
 .hero__title {
   font-family: var(--font-display); font-size: var(--fs-hero);

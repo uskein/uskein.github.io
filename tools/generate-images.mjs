@@ -104,7 +104,6 @@ function heroImage() {
   }).join('');
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Los diez productos de Uskein Studio">
   <rect width="1200" height="675" fill="#EDEBE4"/>
-  <g opacity=".55">${grid()}</g>
   <rect x="56" y="56" width="12" height="12" fill="#C8FF3D"/>
   <text x="84" y="70" fill="#575C58" font-family="monospace" font-size="16" letter-spacing="3">USKEIN STUDIO · CATÁLOGO</text>
   <text x="56" y="128" fill="#14171C" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="44" letter-spacing="-2">DIEZ PRODUCTOS, UNA MISMA IDEA</text>

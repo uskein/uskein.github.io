@@ -125,13 +125,15 @@ Rediseño de todo el brochure hacia una lectura **HUD / técnica**. Excepción c
 
 | Elemento | Definición | Regla |
 |---|---|---|
-| **Gotas de pintura** | Cuatro gotas lima (`--accent`) cayendo bajo el borde del header, con péndulo suave | Solo en el header. Ancho 5 px, alturas 9/13/17/22 px. Sin blur ni sombras de color |
-| **Sello giratorio** | Cuadrado de 26 px con borde lima y las letras `US` en mono, junto al wordmark | Giro lineal de 14 s. Se considera señal de «sistema activo», no adorno |
+| **Ola de pintura** | El borde inferior del navbar es una ola orgánica con chorreones (`nav-paint`, SVG inline) | Tres capas: sombra (`--paint-dark`), base (`--paint`) y brillo (`--paint-light`), más gotas sueltas. Solo en el header |
+| **Color por tema** | Oscuro: verde lima `#C8FF3D` → `#E6FFA8` → `#4F7D00`, complemento violeta `#8B78FF`. Claro: morado `#6D4BF5` → `#B9A3FF` → `#4F32CC`, complemento ámbar `#F59E0B` | Se usa la complementariedad para que las salpicaduras destaquen sin añadir un segundo acento funcional |
+| **Sello giratorio** | Cuadrado de 26 px con borde lima y las letras `US` en mono, junto al wordmark | Giro lineal de 14 s. Señal de «sistema activo», no adorno |
 | **Esquinas HUD** | Ocho marcas de 14 × 1 px en las esquinas de tarjetas, placas y modales | `opacity: .7`, nunca sobre texto |
+| **Retícula** | Eliminada del fondo del hero y del video del hero | Se mantiene solo dentro de las capturas de producto, donde es contenido |
 | **Tema por defecto** | Oscuro (`--bg #0E1116`) en todas las páginas | El interruptor mantiene el tema claro como alternativa |
-| **Movimiento** | `drip-fall`, `drip-sway` y `seal-spin` se desactivan con `prefers-reduced-motion` | Regla global en `tokens.css` |
+| **Movimiento** | `paint-breathe` y `seal-spin` se desactivan con `prefers-reduced-motion` | Regla global en `tokens.css` |
 
-> Nota de craft: las gotas usan un radio de 3 px solo en la punta. Es la única excepción al radio 0 del sistema, documentada aquí para evitar que se propague a otros componentes.
+> Nota de craft: la ola usa curvas SVG y un radio suave en los chorreones. Es la única excepción a la geometría rectilínea del sistema, documentada aquí para evitar que se propague a otros componentes.
 
 ## 4. Accesibilidad
 

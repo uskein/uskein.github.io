@@ -16,6 +16,8 @@ Auditoría aplicada al rediseño tecnológico (2026-11-24). Objeto: **WCAG 2.1 A
 | Targets táctiles ≥ 44 px | Botones, chips, cierre de modal y WhatsApp flotante | ✅ |
 | Estructura semántica | Un `h1` por página, `h2`/`h3` jerárquicos, `nav`, `main`, `footer` | ✅ |
 | Idioma | `lang="es"` en todas las páginas | ✅ |
+| Barra de desplazamiento | `scrollbar-color` y `::-webkit-scrollbar` con tokens de tema; pulgar ≥ 12 px | ✅ |
+| Indicador de progreso | Barra superior `aria-hidden`, decorativa, sin anunciar a lectores de pantalla | ✅ |
 | viewport y sin scroll horizontal | Verificado a 390 px | ✅ |
 | Enlaces con propósito | CTA con texto explícito; `aria-label` en iconos | ✅ |
 

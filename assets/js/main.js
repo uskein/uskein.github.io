@@ -271,11 +271,19 @@ document.querySelectorAll('[data-mail]').forEach(el => {
   el.href = `mailto:${CONFIG.email}${el.dataset.mail ? '?subject=' + encodeURIComponent(el.dataset.mail) : ''}`;
 });
 
-/* ---------- Botón «volver arriba» ---------- */
-window.addEventListener('scroll', () => {
-  const btn = document.querySelector('.to-top');
+/* ---------- Progreso de lectura y botón «volver arriba» ---------- */
+function updateScrollUI() {
+  var prog = document.querySelector('.scroll-progress');
+  if (prog) {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+  }
+  var btn = document.querySelector('.to-top');
   if (btn) btn.classList.toggle('is-visible', window.scrollY > 600);
-}, { passive: true });
+}
+window.addEventListener('scroll', updateScrollUI, { passive: true });
+window.addEventListener('resize', updateScrollUI, { passive: true });
+updateScrollUI();
 document.querySelector('.to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 /* ---------- Video del hero: bucle continuo + control de pausa ---------- */

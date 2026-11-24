@@ -6,7 +6,22 @@
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--accent) var(--bg-raised);
+  scrollbar-width: thin;
+}
+
+/* ---------- Barra de desplazamiento ---------- */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--bg-raised); border-left: 1px solid var(--line); }
+::-webkit-scrollbar-thumb { background: var(--accent); border: 3px solid var(--bg-raised); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
+::-webkit-scrollbar-corner { background: var(--bg-raised); }
+.scroll-progress {
+  position: fixed; left: 0; top: 0; z-index: 80; height: 3px; width: 0;
+  background: var(--paint); pointer-events: none;
+}
 
 body {
   margin: 0;

@@ -81,6 +81,7 @@ function page(p) {
   <script defer src="../../assets/js/main.js"></script>
 </head>
 <body style="--product:${p.accent}">
+  <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <header class="site-header">

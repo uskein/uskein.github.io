@@ -133,7 +133,7 @@ Rediseño de todo el brochure hacia una lectura **HUD / técnica**. Excepción c
 | **Tema por defecto** | Oscuro (`--bg #0E1116`) en todas las páginas | El interruptor mantiene el tema claro como alternativa |
 | **Movimiento** | `paint-breathe` y `seal-spin` se desactivan con `prefers-reduced-motion` | Regla global en `tokens.css` |
 
-> Nota de craft: la ola usa curvas SVG y un radio suave en los chorreones. Es la única excepción a la geometría rectilínea del sistema, documentada aquí para evitar que se propague a otros componentes.
+> Nota de craft: la ola usa curvas SVG, un radio suave en los chorreones y **un degradado vertical controlado** (`--paint-light → --paint → --paint-dark`) más reflejos elípticos para dar volumen, como la referencia visual del usuario. Es la única excepción a la geometría rectilínea y a la prohibición de degradados del sistema; queda circunscrita a `.nav-paint` y no debe propagarse a otros componentes.
 
 ## 4. Accesibilidad
 

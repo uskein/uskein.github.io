@@ -95,8 +95,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .nav-paint svg { width: 100%; height: 100%; display: block; overflow: visible; }
 .nav-paint .paint-shadow { fill: var(--paint-dark); transform: translateY(6px); opacity: .55; }
-.nav-paint .paint-base { fill: var(--paint); }
-.nav-paint .paint-light { fill: var(--paint-light); opacity: .9; }
+.nav-paint .paint-base { fill: url(#paintFill); }
+.nav-paint .paint-light { fill: url(#paintGloss); opacity: .95; }
+.nav-paint .paint-gloss { fill: var(--paint-light); opacity: .55; }
 .nav-paint .paint-accent { fill: var(--paint-accent); opacity: .95; }
 .nav-paint .paint-drop { fill: var(--paint); }
 @keyframes paint-breathe {

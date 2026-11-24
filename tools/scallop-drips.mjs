@@ -35,13 +35,29 @@ for (const [c, nw, r, depth] of drips) {
 bottom += `H0 Z`;
 
 const path = `M0,0 H1440 ${bottom}`;
-const light = 'M0,0 H1440 V7 H0 Z';
+const light = 'M0,0 H1440 V18 C1360,26 1300,12 1240,20 C1180,28 1120,14 1060,22 C1000,30 940,16 880,24 C820,32 760,18 700,26 C640,34 580,20 520,28 C460,36 400,22 340,30 C280,38 220,24 160,32 C100,40 40,26 0,30 Z';
+
+const gloss = drips.map(([c, nw, r, depth]) =>
+  `<ellipse class="paint-gloss" cx="${(c - r * 0.28).toFixed(1)}" cy="${(depth - r * 0.42).toFixed(1)}" rx="${(r * 0.42).toFixed(1)}" ry="${(r * 0.26).toFixed(1)}"/>`
+).join('');
 
 const svg = `<div class="nav-paint" aria-hidden="true">
       <svg viewBox="0 0 1440 144" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="paintFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--paint-light)"/>
+            <stop offset="0.42" stop-color="var(--paint)"/>
+            <stop offset="1" stop-color="var(--paint-dark)"/>
+          </linearGradient>
+          <linearGradient id="paintGloss" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--paint-light)" stop-opacity="0.95"/>
+            <stop offset="1" stop-color="var(--paint-light)" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
         <path class="paint-shadow" d="${path}"/>
         <path class="paint-base" d="${path}"/>
         <path class="paint-light" d="${light}"/>
+        ${gloss}
       </svg>
     </div>`;
 

@@ -45,7 +45,7 @@ function applyTheme(theme) {
   const btn = document.querySelector('.theme-toggle');
   if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro');
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute('content', theme === 'dark' ? '#0E1116' : '#EDEBE4');
+  if (meta) meta.setAttribute('content', theme === 'dark' ? '#0E1116' : '#F7F4FF');
 }
 
 applyTheme(getPreferredTheme());

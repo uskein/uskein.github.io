@@ -511,6 +511,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
   .toast-stack { left: var(--s-4); right: var(--s-4); max-width: none; bottom: calc(var(--s-6) + 68px); }
 }
 
+/* Tema claro: el ámbar complementario aparece en cifras y etiquetas, con el violeta como acento principal */
+[data-theme='light'] .value__num,
+[data-theme='light'] .metric__value { color: var(--data); }
+
 @media (prefers-contrast: more) {
   :root { --line: var(--line-strong); --text-muted: var(--text); }
 }

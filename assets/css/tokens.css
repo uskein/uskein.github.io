@@ -76,21 +76,22 @@
 }
 
 [data-theme='light'] {
-  --bg: #EDEBE4;
-  --bg-raised: #F7F6F1;
-  --surface: #F7F6F1;
-  --surface-alt: #DFDCD2;
-  --line: #C9C6BC;
-  --line-strong: #8D9288;
-  --text: #14171C;
-  --text-muted: #575C58;
-  --text-faint: #878C86;
-  --accent: #5A8F00;
-  --accent-hover: #4A7800;
-  --accent-active: #3D6400;
-  --accent-soft: #E5EED2;
+  /* Violeta con su complementario ámbar: fondos teñidos de violeta, tinta violeta oscura */
+  --bg: #F7F4FF;
+  --bg-raised: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-alt: #EFEAFF;
+  --line: #D8D0EE;
+  --line-strong: #A99BCB;
+  --text: #1B1530;
+  --text-muted: #5C5473;
+  --text-faint: #8B83A3;
+  --accent: #6D4BF5;
+  --accent-hover: #5B3AE0;
+  --accent-active: #4F32CC;
+  --accent-soft: #EDE9FE;
   --on-accent: #FFFFFF;
-  --data: #1B44C8;
+  --data: #B45309; /* ámbar oscurecido: complementario legible sobre papel */
   --ok: #1B6B43;
   --warn: #8A4A00;
   --bad: #B3261E;

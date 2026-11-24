@@ -9,12 +9,12 @@ const B = 58; // altura de la banda
 // [x derecha, x izquierda, profundidad, desplazamiento del fondo, gota: [yBulbo, radio] | null]
 const lobes = [
   [1440, 1300, 34, 10, null],
-  [1300, 1140, 56, -14, [156, 21]],
+  [1300, 1140, 56, -14, null],
   [1140, 1020, 26, 8, null],
-  [1020, 840, 64, 16, [176, 24]],
+  [1020, 840, 64, 16, null],
   [840, 720, 30, -10, null],
   [720, 560, 52, 6, null],
-  [560, 430, 28, -8, [150, 18]],
+  [560, 430, 28, -8, null],
   [430, 250, 60, 14, null],
   [250, 0, 38, -6, null]
 ];
@@ -36,9 +36,17 @@ for (const [xR, xL, depth, skew, drip] of lobes) {
 d += 'H0 Z';
 
 const svg = `<div class="nav-paint" aria-hidden="true">
-      <svg viewBox="0 0 1440 210" preserveAspectRatio="none">
+      <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="paintEdge" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--paint-light)"/>
+            <stop offset="0.5" stop-color="var(--paint)"/>
+            <stop offset="1" stop-color="var(--paint-dark)"/>
+          </linearGradient>
+        </defs>
         <path class="paint-shadow" d="${d}"/>
         <path class="paint-base" d="${d}"/>
+        <path class="paint-edge" d="${d}"/>
       </svg>
     </div>`;
 

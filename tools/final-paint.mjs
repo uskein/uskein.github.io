@@ -45,7 +45,6 @@ const svg = `<div class="nav-paint" aria-hidden="true">
             <stop offset="1" stop-color="var(--paint-dark)"/>
           </linearGradient>
         </defs>
-        <path class="paint-shadow" d="${d}"/>
         <path class="paint-base" d="${d}"/>
         <path class="paint-edge" d="${edgeD}"/>
       </svg>

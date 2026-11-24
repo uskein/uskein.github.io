@@ -67,6 +67,7 @@
   --paint-light: #E6FFA8;
   --paint-dark: #4F7D00;
   --paint-accent: #8B78FF;
+  --paint-ink: #0E1116;
 
   /* Movimiento */
   --ease: cubic-bezier(.2,.7,.2,1);
@@ -100,6 +101,7 @@
   --paint-light: #B9A3FF;
   --paint-dark: #4F32CC;
   --paint-accent: #F59E0B;
+  --paint-ink: #FFFFFF;
 }
 
 @media (max-width: 720px) {

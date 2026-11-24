@@ -90,7 +90,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 @keyframes seal-spin { to { transform: rotate(360deg); } }
 
 .nav-paint {
-  position: absolute; left: 0; right: 0; top: 100%; height: 116px;
+  position: absolute; left: 0; right: 0; top: calc(100% - 14px); height: 116px;
   pointer-events: none; z-index: 1; overflow: visible;
 }
 .nav-paint svg { width: 100%; height: 100%; display: block; overflow: visible; }
@@ -125,10 +125,20 @@ button, input, textarea, select { font: inherit; color: inherit; }
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: var(--border);
+  background: var(--paint);
+  color: var(--paint-ink);
+  border-bottom: 0;
 }
+.site-header .brand, .site-header .nav a, .site-header .theme-toggle, .site-header .menu-toggle { color: var(--paint-ink); }
+.site-header .nav a { opacity: .82; }
+.site-header .nav a:hover, .site-header .nav a[aria-current='page'] { opacity: 1; border-color: var(--paint-ink); }
+.site-header .theme-toggle, .site-header .menu-toggle { border-color: var(--paint-ink); }
+.site-header .theme-toggle:hover, .site-header .menu-toggle:hover { background: color-mix(in srgb, var(--paint-ink) 14%, transparent); }
+.site-header .btn--primary { background: var(--paint-ink); color: var(--paint); box-shadow: none; }
+.site-header .btn--primary:hover { background: var(--paint-ink); transform: translateY(-2px); box-shadow: none; }
+.site-header .header-seal { border-color: var(--paint-ink); color: var(--paint-ink); animation-duration: 14s; }
+.site-header .brand .reg { background: var(--paint-ink); }
+.site-header .nav.is-open { background: var(--paint); border-color: var(--paint-ink); }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   height: 68px; gap: var(--s-6);

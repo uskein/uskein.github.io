@@ -125,7 +125,7 @@ Rediseño de todo el brochure hacia una lectura **HUD / técnica**. Excepción c
 
 | Elemento | Definición | Regla |
 |---|---|---|
-| **Ola de pintura** | El borde inferior del navbar es una ola orgánica con chorreones (`nav-paint`, SVG inline) | Tres capas: sombra (`--paint-dark`), base (`--paint`) y brillo (`--paint-light`), más gotas sueltas. Solo en el header |
+| **Ola de pintura** | El navbar completo se pinta con `--paint` y su borde inferior es una ola orgánica con chorreones (`nav-paint`, SVG inline) pegada al navbar | Tres capas: sombra (`--paint-dark`), base (`--paint`) y brillo (`--paint-light`), más gotas sueltas. El texto del nav usa `--paint-ink` (grafito sobre lima, blanco sobre morado) |
 | **Color por tema** | Oscuro: verde lima `#C8FF3D` → `#E6FFA8` → `#4F7D00`, complemento violeta `#8B78FF`. Claro: morado `#6D4BF5` → `#B9A3FF` → `#4F32CC`, complemento ámbar `#F59E0B` | Se usa la complementariedad para que las salpicaduras destaquen sin añadir un segundo acento funcional |
 | **Sello giratorio** | Cuadrado de 26 px con borde lima y las letras `US` en mono, junto al wordmark | Giro lineal de 14 s. Señal de «sistema activo», no adorno |
 | **Esquinas HUD** | Ocho marcas de 14 × 1 px en las esquinas de tarjetas, placas y modales | `opacity: .7`, nunca sobre texto |

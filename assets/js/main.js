@@ -36,7 +36,7 @@ const root = document.documentElement;
 function getPreferredTheme() {
   const saved = localStorage.getItem(THEME_KEY);
   if (saved === 'light' || saved === 'dark') return saved;
-  return 'light'; // modo claro por defecto, según solicitud
+  return 'dark'; // modo oscuro tecnológico por defecto
 }
 
 function applyTheme(theme) {
@@ -80,7 +80,8 @@ function renderCatalog() {
   const grid = document.querySelector('#product-grid');
   if (!grid) return;
   grid.innerHTML = PRODUCTS.map(p => `
-    <a class="product-card reveal" href="productos/${p.slug}/index.html"
+    <article class="product-card reveal" role="button" tabindex="0" data-slug="${p.slug}"
+       aria-label="Ver funcionalidades de ${p.name}"
        data-category="${p.category}" data-services="${(p.services || []).join(' ')}" style="--card-accent:${p.accent}">
       <div class="product-card__media"><img src="assets/img/${p.image}" alt="Vista previa de ${p.name}" loading="lazy"></div>
       <div class="product-card__body">
@@ -102,7 +103,7 @@ function renderCatalog() {
           </span>
         </div>
       </div>
-    </a>`).join('');
+    </article>`).join('');
   grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
 
@@ -151,6 +152,39 @@ document.querySelectorAll('.chip[data-service-filter]').forEach(function (chip) 
     applyFilters();
   });
 });
+
+/* ---------- Modal de funcionalidades del producto ---------- */
+var modal = document.querySelector('#product-modal');
+function openProductModal(slug) {
+  var p = PRODUCTS.find(function (x) { return x.slug === slug; });
+  if (!p || !modal) return;
+  modal.querySelector('#modal-id').textContent = p.id + ' · ' + p.categoryLabel;
+  modal.querySelector('#modal-title').textContent = p.name;
+  modal.querySelector('.pm-tag').textContent = p.tagline;
+  modal.querySelector('.pm-desc').textContent = p.description;
+  modal.querySelector('#modal-metrics').innerHTML = p.metrics.map(function (m) {
+    return '<div class="metric"><div class="metric__value">' + m.value + '</div><div class="metric__label">' + m.label + '</div></div>';
+  }).join('');
+  modal.querySelector('#modal-features').innerHTML = p.features.map(function (f, i) {
+    return '<li><span class="mono">' + String(i + 1).padStart(2, '0') + '</span><div><strong>' + f.title + '</strong><p>' + f.text + '</p></div></li>';
+  }).join('');
+  var link = modal.querySelector('#modal-link');
+  link.href = 'productos/' + p.slug + '/index.html';
+  var wa = modal.querySelector('#modal-wa');
+  wa.dataset.wa = 'Me gustaría un proyecto similar a ' + p.name + '.';
+  wa.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(wa.dataset.wa);
+  modal.showModal();
+}
+document.querySelectorAll('.product-card[data-slug]').forEach(function (card) {
+  card.addEventListener('click', function () { openProductModal(card.dataset.slug); });
+  card.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProductModal(card.dataset.slug); }
+  });
+});
+if (modal) {
+  modal.querySelector('.pm-close')?.addEventListener('click', function () { modal.close(); });
+  modal.addEventListener('click', function (e) { if (e.target === modal) modal.close(); });
+}
 
 /* ---------- Toast ---------- */
 function toast(message, type = 'ok') {

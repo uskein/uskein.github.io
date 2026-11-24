@@ -119,6 +119,20 @@ Escala: `clamp()` fluida. `tabular-nums` en toda cifra. Interlineado 1.05 en dis
 
 ---
 
+## 3.1 Firma tecnológica extendida (aprobada 2026-11-24)
+
+Rediseño de todo el brochure hacia una lectura **HUD / técnica**. Excepción controlada a las reglas de «relleno decorativo»: se permite un único motivo decorativo en el header por ser la firma del estudio.
+
+| Elemento | Definición | Regla |
+|---|---|---|
+| **Gotas de pintura** | Cuatro gotas lima (`--accent`) cayendo bajo el borde del header, con péndulo suave | Solo en el header. Ancho 5 px, alturas 9/13/17/22 px. Sin blur ni sombras de color |
+| **Sello giratorio** | Cuadrado de 26 px con borde lima y las letras `US` en mono, junto al wordmark | Giro lineal de 14 s. Se considera señal de «sistema activo», no adorno |
+| **Esquinas HUD** | Ocho marcas de 14 × 1 px en las esquinas de tarjetas, placas y modales | `opacity: .7`, nunca sobre texto |
+| **Tema por defecto** | Oscuro (`--bg #0E1116`) en todas las páginas | El interruptor mantiene el tema claro como alternativa |
+| **Movimiento** | `drip-fall`, `drip-sway` y `seal-spin` se desactivan con `prefers-reduced-motion` | Regla global en `tokens.css` |
+
+> Nota de craft: las gotas usan un radio de 3 px solo en la punta. Es la única excepción al radio 0 del sistema, documentada aquí para evitar que se propague a otros componentes.
+
 ## 4. Accesibilidad
 
 - Contraste AA verificado: texto ≥ 4,5:1, gráficos ≥ 3:1 en ambos temas.

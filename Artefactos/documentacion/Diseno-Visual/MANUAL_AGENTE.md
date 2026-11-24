@@ -2,6 +2,8 @@
 
 > Referencia rápida. La fuente completa es `manual-identidad-visual.md`.
 
+> Actualización 2026-11-24: tema **oscuro** por defecto, firma tecnológica (gotas y sello en el header, esquinas HUD), modal de funcionalidades en las tarjetas y sin segundo video en el hub. Ver §3.1 del manual.
+
 ## Reglas innegociables
 
 1. Usar **solo** las variables de `assets/css/tokens.css`. Prohibido hardcodear HEX.

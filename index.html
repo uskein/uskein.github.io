@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#EDEBE4">
+  <meta name="theme-color" content="#0E1116">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E1116'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%23C8FF3D'/%3E%3C/svg%3E">
   <meta name="description" content="Uskein Studio — agencia freelance. Creamos aplicaciones móviles, aplicaciones web y sistemas transaccionales a la medida. Diez proyectos realizados con demos en video.">
   <meta name="robots" content="index, follow">
@@ -47,7 +47,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Uskein Studio, inicio"><span class="reg" aria-hidden="true"></span>USKEIN STUDIO</a>
+      <a class="brand" href="index.html" aria-label="Uskein Studio, inicio"><span class="reg" aria-hidden="true"></span><span class="header-seal" aria-hidden="true">US</span>USKEIN STUDIO</a>
       <nav class="nav" aria-label="Navegación principal">
         <a href="#servicios">Servicios</a>
         <a href="#proceso">Proceso</a>
@@ -65,6 +65,7 @@
         </button>
       </div>
     </div>
+    <div class="header-drips" aria-hidden="true"><span class="drip drip--1"></span><span class="drip drip--2"></span><span class="drip drip--3"></span><span class="drip drip--4"></span></div>
   </header>
 
   <main id="main">
@@ -174,24 +175,10 @@
       </div>
     </section>
 
-    <!-- VIDEO -->
-    <section class="section section--tight section--alt" id="video">
-      <div class="container">
-        <p class="eyebrow reveal">03 · Trabajo reciente</p>
-        <h2 class="h2 reveal">Diez proyectos, catorce segundos</h2>
-        <div class="video-frame reveal" style="margin-top:var(--s-8)">
-          <video controls preload="none" poster="assets/img/poster.png" aria-label="Video con los diez proyectos realizados">
-            <source src="assets/video/promo.mp4" type="video/mp4">
-            Tu navegador no soporta video. <a href="assets/video/promo.mp4">Descárgalo</a>.
-          </video>
-        </div>
-      </div>
-    </section>
-
     <!-- PROYECTOS / DEMOS -->
     <section class="section" id="catalogo">
       <div class="container">
-        <p class="eyebrow reveal">04 · Proyectos realizados</p>
+        <p class="eyebrow reveal">03 · Proyectos realizados</p>
         <h2 class="h2 reveal">Pruebas de lo que sabemos hacer</h2>
         <p class="lede reveal">No son plantillas ni conceptos: son diez productos ya construidos. Cada ficha muestra sus momentos reales y un demo en video para que juzgues el resultado.</p>
         <div class="rule"></div>
@@ -210,7 +197,7 @@
     <!-- POR QUÉ -->
     <section class="section section--alt" id="por-que">
       <div class="container">
-        <p class="eyebrow reveal">05 · Por qué trabajar con nosotros</p>
+        <p class="eyebrow reveal">04 · Por qué trabajar con nosotros</p>
         <h2 class="h2 reveal">Software que no te crea dependencias</h2>
         <div class="values reveal">
           <article class="value">
@@ -268,7 +255,7 @@
     <!-- CÓMO TRABAJAMOS / INVERSIÓN -->
     <section class="section" id="precios">
       <div class="container">
-        <p class="eyebrow reveal">06 · Formas de trabajar</p>
+        <p class="eyebrow reveal">05 · Formas de trabajar</p>
         <h2 class="h2 reveal">Elige el punto de partida</h2>
         <p class="lede reveal">Importes orientativos de lanzamiento. Cerramos el alcance contigo antes de empezar, sin sorpresas.</p>
         <div class="pricing reveal" style="margin-top:var(--s-10)">
@@ -373,7 +360,7 @@
     <!-- CONTACTO -->
     <section class="section" id="contacto">
       <div class="container">
-        <p class="eyebrow reveal">07 · Contacto</p>
+        <p class="eyebrow reveal">06 · Contacto</p>
         <h2 class="h2 reveal">Empecemos por tu idea</h2>
         <div class="contact-grid reveal" style="margin-top:var(--s-10)">
           <form id="contact-form" novalidate>
@@ -462,6 +449,27 @@
       </div>
     </div>
   </footer>
+
+  <dialog id="product-modal" class="product-modal" aria-labelledby="modal-title">
+    <div class="pm-inner">
+      <div class="pm-head">
+        <span class="pm-id" id="modal-id">US-01</span>
+        <button class="pm-close" type="button" aria-label="Cerrar detalles">×</button>
+      </div>
+      <h2 class="h2" id="modal-title"></h2>
+      <p class="pm-tag mono"></p>
+      <p class="pm-desc"></p>
+      <div class="placa"><div class="placa__metrics" id="modal-metrics"></div></div>
+      <h3 class="pm-sub">Funcionalidades</h3>
+      <ol class="pm-features" id="modal-features"></ol>
+      <div class="pm-actions">
+        <a class="btn btn--primary" id="modal-link" href="#">Ver página del producto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--secondary" id="modal-wa" data-wa="Me gustaría un proyecto similar." href="#">Pedir propuesta similar</a>
+      </div>
+    </div>
+  </dialog>
 
   <a class="wa-float" data-wa="Hola Uskein Studio, quiero cotizar un proyecto." href="#" aria-label="Hablar por WhatsApp">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.7 9.7 0 0 1-3-.5L3 21l1.6-5a8.4 8.4 0 1 1 16.4-4.5Z"/><path d="M9 9.5c.2 2.7 2.8 5.3 5.5 5.5l1.3-1.4 2 .9c.3.1.4.4.3.7-.6 1.5-2.3 2.3-4.4 1.9-3.4-.6-6.1-3.3-6.7-6.7-.4-2.1.4-3.8 1.9-4.4.3-.1.6 0 .7.3l.9 2L9 9.5Z"/></svg>

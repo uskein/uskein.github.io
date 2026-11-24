@@ -4,6 +4,8 @@ Brochure de **Uskein Studio**, agencia freelance que crea aplicaciones móviles,
 
 El enfoque comercial es **vender servicios**; los diez productos se presentan como **proyectos ya realizados** con demos en video (prueba del oficio), no como licencias.
 
+Rediseño 2026-11-24: **tema oscuro tecnológico por defecto** en todo el brochure, firma HUD (gotas de pintura y sello giratorio en el header, esquinas en tarjetas), **modal de funcionalidades** en cada tarjeta con botón a su ficha, y un solo video (el del hero). Tagline de Pulse Clay: *«Hábitos e hitos que se sienten tuyos»*.
+
 Para promocionarlo: **`promocion.html`** (kit visual: copys copiables, carrusel, calendario y UTM), `PROMOCION.md` (plan de 14 días), `LINKEDIN.md` (perfil y primer post), carrusel en `assets/img/carrusel/` y enlaces UTM con `node tools/utm-links.mjs`.
 
 Estructura del hub: hero de agencia → servicios → tecnologías → proceso → video → proyectos/demos (con doble filtro) → por qué → resultados verificables → formas de trabajar → calculadora → FAQ → contacto.

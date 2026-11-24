@@ -21,7 +21,7 @@
       categoryLabel: 'Bienestar', platform: 'iOS · Android',
       stack: 'Expo · React Native · SQLite', status: 'available', statusLabel: 'Disponible',
       accent: '#8B78FF', image: 'habitos.svg',
-      tagline: 'Rachas, metas y hitos que se sienten tuyos',
+      tagline: 'Hábitos e hitos que se sienten tuyos',
       description: 'App de hábitos local-first que convierte la constancia en un registro tangible. Sin cuentas, sin nube y sin perder un solo día de progreso. Racha con congelación, hitos con foto, medallas propias y respaldo cifrado.',
       features: [
         { title: 'Hoy, sin fricción', text: 'Marca hábitos con un toque, registra bienestar y guarda motivaciones con un gesto.' },

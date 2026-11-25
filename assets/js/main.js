@@ -60,10 +60,12 @@ const nav = document.querySelector('.nav');
 menuToggle?.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   menuToggle.setAttribute('aria-expanded', String(open));
+  document.querySelector('.site-header')?.classList.toggle('menu-open', open);
 });
 nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   nav.classList.remove('is-open');
   menuToggle?.setAttribute('aria-expanded', 'false');
+  document.querySelector('.site-header')?.classList.remove('menu-open');
 }));
 
 /* ---------- Año en footer ---------- */

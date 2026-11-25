@@ -121,6 +121,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   50% { transform: translateY(3px); }
 }
 .nav-paint svg { animation: paint-breathe 6s var(--ease) infinite; }
+.site-header.menu-open .nav-paint { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .nav-paint svg { animation: none; } }
 
 /* Esquinas HUD en contenedores */
@@ -512,7 +513,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   .brand { font-size: .9rem; white-space: nowrap; }
   .header-actions .btn--primary { display: none; }
   .nav { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--bg-raised); border-bottom: var(--border-strong); padding: var(--s-6) var(--margin); flex-direction: column; align-items: flex-start; gap: var(--s-5); }
-  .nav.is-open { display: flex; }
+  .nav.is-open { display: flex; z-index: 3; }
   .menu-toggle { display: grid; place-items: center; }
   .product-grid, .values, .pricing, .hero__stats, .feature-list, .shots, .service-grid, .steps { grid-template-columns: 1fr; }
   .step { border-right: 0; border-bottom: var(--border); padding: var(--s-6) 0; }
